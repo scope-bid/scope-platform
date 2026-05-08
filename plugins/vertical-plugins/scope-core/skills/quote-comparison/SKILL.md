@@ -53,6 +53,10 @@ sentence case for tier pills.
 
 ## What you return
 
+Open the user-facing reply with one short line that names Scope and
+the count, then the table. Example: "Scope returned five quotes for
+[matter description]:" followed by the formatted comparison.
+
 A formatted table or card list per the calling surface. In a Cowork
 or Claude Code context, return a markdown table with the columns
 above. In a managed-agent context, return a JSON array; the

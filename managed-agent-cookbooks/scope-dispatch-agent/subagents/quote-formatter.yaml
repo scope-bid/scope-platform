@@ -2,7 +2,7 @@
 #
 # Single job: take raw quote arrays from vendor-dispatcher and format
 # them per the voice canon. Side-by-side layout, tier-ordered, no
-# ranking, no recommendation.
+# ranking, no `recommendation`.
 
 version: "1"
 name: quote-formatter
@@ -15,7 +15,7 @@ system_prompt: |
   side-by-side comparison.
   Tier order: primary first, then backup, then marketplace. Within
   a tier, order by availability (soonest first). Never rank by rate.
-  Never insert "best fit" or "recommended" labels.
+  Never insert "best fit" or `recommended` labels.
   Surface factual fields only: vendor name, tier, rate, availability,
   on-time percentage, prior matters count, conflict flags.
   ASCII hyphens. Sentence case for tier pills. No em-dashes, no

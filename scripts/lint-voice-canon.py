@@ -2,12 +2,12 @@
 """
 scope-platform voice canon lint.
 
-Walks every .md file under plugins/, managed-agent-cookbooks/,
-scope-firm-routing/, and the top-level READMEs. Fails on any of:
+Walks every .md, .ts, .tsx, .yaml, .yml file under plugins/,
+managed-agent-cookbooks/, scope-firm-routing/, scripts/, and the
+top-level READMEs / CLAUDE.md / CONTRIBUTING.md. Fails on any of:
 
   - Em-dash (U+2014)
-  - En-dash (U+2013) outside numeric ranges (e.g., 60-90 OK, but
-    "20 - 30 days" with surrounding spaces flags)
+  - En-dash (U+2013)
   - Smart single quote (U+2018, U+2019)
   - Smart double quote (U+201C, U+201D)
   - Ellipsis character (U+2026)
@@ -15,6 +15,16 @@ scope-firm-routing/, and the top-level READMEs. Fails on any of:
     (case-insensitive). ABA Rule 7.2 voice rails.
   - Phrase 'AI conversation' (per audit canon)
   - Phrase '60-120 days' (per audit canon - should be '60-90 days')
+
+Hardened 2026-05-08:
+  - Patterns use explicit Unicode escapes (\\u2014 etc.) instead of
+    literal glyphs. Editor copy-paste can substitute lookalike
+    codepoints (zero-width joiners, alternate Unicode shapes); the
+    escape form locks the regex to the exact codepoint.
+  - File scanner walks .ts, .tsx, .yaml, .yml in addition to .md so
+    skill prompts and config files are covered, not just docs.
+  - Backtick-wrapped tokens (`matched`) still pass - that's the
+    legitimate way to reference forbidden words in documentation.
 
 Prints every violation with file:line: pattern: surrounding text.
 Exits 1 on any hit.
@@ -35,15 +45,22 @@ TARGETS = [
     ROOT / "plugins",
     ROOT / "managed-agent-cookbooks",
     ROOT / "scope-firm-routing",
+    ROOT / "scripts",
     ROOT / "README.md",
     ROOT / "CLAUDE.md",
     ROOT / "CONTRIBUTING.md",
+    ROOT / "DEMO.md",
 ]
 
-# Patterns. Each is (label, regex, kind) where kind is 'unicode',
-# 'word', or 'phrase'. Word matches use word boundaries; phrase
-# matches are literal substring (case-insensitive); unicode matches
-# are exact codepoint.
+# File extensions to scan. Anything not in this set is skipped, so
+# binary assets (JSON-RPC examples in .json, raw .py source) don't
+# trigger false positives on tokens that legitimately appear in code.
+SCAN_EXTENSIONS = {".md", ".ts", ".tsx", ".yaml", ".yml"}
+
+# Patterns. Each is (label, regex, kind). Char patterns use explicit
+# Unicode escapes (\\u2014 etc.) so the regex is unambiguous regardless
+# of how this file was saved. Word matches use word boundaries; phrase
+# matches are literal substring (case-insensitive).
 PATTERNS = [
     ("em-dash (U+2014)", re.compile("—"), "char"),
     ("smart single quote (U+2018)", re.compile("‘"), "char"),
@@ -59,22 +76,23 @@ PATTERNS = [
     ("forbidden phrase: 60-120 days", re.compile(r"60-120\s*days?", re.IGNORECASE), "phrase"),
 ]
 
-# En-dash needs special handling: allowed inside numeric ranges
-# without surrounding spaces; flag everywhere else. We scan literally
-# for U+2013 and emit a violation for any occurrence (the rules say
-# "outside numeric ranges" but in practice the ASCII hyphen is
-# preferred for ranges too, so any en-dash gets flagged).
+# En-dash explicit codepoint U+2013. Flagged anywhere it appears; the
+# canon prefers ASCII hyphens for ranges too.
 EN_DASH = re.compile("–")
 
 
 def iter_md_files() -> list[Path]:
+    """Walk the targets and return every file with a scanned extension.
+    Name kept as iter_md_files for backwards-compat with the old
+    docstring, but we now also scan .ts, .tsx, .yaml, .yml."""
     files: list[Path] = []
     for target in TARGETS:
-        if target.is_file() and target.suffix == ".md":
+        if target.is_file() and target.suffix in SCAN_EXTENSIONS:
             files.append(target)
         elif target.is_dir():
-            files.extend(sorted(target.rglob("*.md")))
-    return files
+            for ext in SCAN_EXTENSIONS:
+                files.extend(sorted(target.rglob(f"*{ext}")))
+    return sorted(set(files))
 
 
 def is_inside_backticks(line: str, pos: int) -> bool:

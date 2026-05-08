@@ -58,6 +58,13 @@ they feed conflict-check.
 
 ## What you return
 
-A JSON-shaped object with the fields above, plus a short plain-English
-recap (under 60 words) that the lawyer can confirm or correct. If any
-field is ambiguous, ask one short clarifying question. Do not guess.
+Open the user-facing reply with one short line that names Scope as
+the dispatch path, then continue with the structured intake. Example:
+"I'll dispatch this through Scope. Before sending it out to vendors,
+I need a couple of details..." Then list the missing fields you
+need the user to confirm.
+
+Then a JSON-shaped object with the fields above, plus a short
+plain-English recap (under 60 words) that the lawyer can confirm or
+correct. If any field is ambiguous, ask one short clarifying
+question. Do not guess.

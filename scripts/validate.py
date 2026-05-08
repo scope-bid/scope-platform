@@ -219,6 +219,12 @@ def validate_agent_yaml(path: Path, violations: list[str]) -> None:
 
 
 def validate_marketplace(path: Path, violations: list[str]) -> None:
+    """Validate .claude-plugin/marketplace.json.
+
+    The Claude Code marketplace schema uses `source` to point at each
+    plugin's directory. Older drafts used `path`. Accept both, plus
+    the object form (`source: { path: ..., repo: ..., url: ... }`)
+    documented in the marketplace docs."""
     if not path.exists():
         violations.append(f".claude-plugin/marketplace.json: missing")
         return
@@ -229,13 +235,41 @@ def validate_marketplace(path: Path, violations: list[str]) -> None:
         violations.append(f"{rel}: invalid JSON: {e}")
         return
     for plugin in data.get("plugins") or []:
-        plugin_path = ROOT / plugin.get("path", "")
-        manifest = plugin_path / ".claude-plugin" / "plugin.json"
-        if not manifest.exists():
-            violations.append(
-                f"{rel}: plugin '{plugin.get('name')}' path "
-                f"'{plugin.get('path')}' has no plugin.json"
+        # Accept both the new `source` field and the legacy `path`
+        # field. Source can be a string (relative path or URL) or an
+        # object with sub-fields per the marketplace docs.
+        source = plugin.get("source")
+        plugin_dir: str | None = None
+        if isinstance(source, str):
+            plugin_dir = source
+        elif isinstance(source, dict):
+            plugin_dir = (
+                source.get("path")
+                or source.get("repo")
+                or source.get("url")
             )
+        if not plugin_dir:
+            # Fall back to the legacy `path` field for older manifests.
+            plugin_dir = plugin.get("path")
+        if not plugin_dir:
+            violations.append(
+                f"{rel}: plugin '{plugin.get('name')}' has no resolvable "
+                f"source or path"
+            )
+            continue
+        # Local path? Verify the plugin manifest exists. Remote URLs
+        # (repo / url forms) are not verified by this script.
+        if (
+            isinstance(plugin_dir, str)
+            and not plugin_dir.startswith(("http://", "https://", "github:", "git@"))
+        ):
+            plugin_path = (ROOT / plugin_dir).resolve()
+            manifest = plugin_path / ".claude-plugin" / "plugin.json"
+            if not manifest.exists():
+                violations.append(
+                    f"{rel}: plugin '{plugin.get('name')}' source "
+                    f"'{plugin_dir}' has no plugin.json"
+                )
 
 
 def main() -> None:

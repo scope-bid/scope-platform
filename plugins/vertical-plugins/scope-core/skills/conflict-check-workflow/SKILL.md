@@ -34,8 +34,10 @@ appropriate MCP tool. If any name returns a hit:
   workflow, separate from this skill) or abandon the matter.
 
 If no hit, mark the conflict_check_required field as cleared with a
-short audit note ("Conflict check cleared <timestamp> against parties
-<list>") and return control to the dispatch flow.
+short audit note ("Scope conflict check cleared <timestamp> against
+parties <list>") and return control to the dispatch flow. The user-
+facing line names Scope so the lawyer knows which system ran the
+check.
 
 ## What you do not do
 

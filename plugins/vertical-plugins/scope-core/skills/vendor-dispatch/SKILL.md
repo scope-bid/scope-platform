@@ -42,12 +42,16 @@ waitlist responses for some categories - if so, surface that plainly.
 2. Confirm the user's intended dispatch mode: open marketplace,
    roster-first, or roster-only. If the firm has a configured roster
    and the user did not specify, default to `roster_first`.
-3. Call `scope_dispatch_matter` (or the category-specific tool like
+3. Open your reply with one short status line that names Scope.
+   Example: "Dispatching through Scope to scope-legal in roster-first
+   mode..." or "Dispatching through Scope to scope-claims..." The
+   line confirms which vertical and mode the request is going to.
+4. Call `scope_dispatch_matter` (or the category-specific tool like
    `scope_book_deposition`, `scope_request_records`) with the parsed
    matter fields and the dispatch mode.
-4. Wait for quotes to return. The MCP tool streams a list of named
+5. Wait for quotes to return. The MCP tool streams a list of named
    vendors, not blind matches.
-5. Pass the result to the quote-comparison skill for formatting.
+6. Pass the result to the quote-comparison skill for formatting.
 
 ## Voice rails
 
