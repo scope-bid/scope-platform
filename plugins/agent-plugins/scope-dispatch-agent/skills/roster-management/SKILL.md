@@ -43,11 +43,13 @@ The roster interacts with three dispatch modes:
 
 ## What this skill does
 
-When a user describes their roster intent ("make Capitol our primary
-court reporter", "exclude Veritext", "show me the current roster"),
-parse the intent and call the right roster MCP tool. Confirm changes
-back to the user in plain English. Do not commit changes the user has
-not asked for.
+When a user describes their roster intent ("make this agency our
+primary court reporter", "exclude that agency", "show me the current
+roster"), parse the intent and call the right roster MCP tool.
+Confirm changes back to the user in plain English. Do not commit
+changes the user has not asked for. Use the agency names the user
+typed; do not pattern-match or invent agency names from prior
+knowledge.
 
 ## Voice rails
 

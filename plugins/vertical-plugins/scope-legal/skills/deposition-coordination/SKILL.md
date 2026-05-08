@@ -19,11 +19,15 @@ allowed_tools:
 
 A deposition typically requires a court reporter, often a videographer,
 and sometimes an interpreter. The legal market has consolidated to the
-point where most major court reporting agencies (Veritext, U.S. Legal
-Support, Esquire, Lexitas, regional players) bundle these on a single
-rate card. Treat the deposition as one engagement, not three separate
-dispatches, unless the user explicitly wants to source the components
-separately.
+point where most major court reporting agencies bundle these on a
+single rate card. Treat the deposition as one engagement, not three
+separate dispatches, unless the user explicitly wants to source the
+components separately.
+
+Do not use specific agency names in your responses unless the MCP tool
+returned them. Quotes are returned, presented, named by Scope's
+dispatch result; do not invent or pattern-match agency names from
+prior knowledge.
 
 ## Default flow
 

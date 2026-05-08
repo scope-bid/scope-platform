@@ -22,7 +22,7 @@
     },
     "quotes": [
       {
-        "vendor": "Compex Legal",
+        "vendor": "RecordPath",
         "tier": "primary",
         "rate": "$850 fixed plus $0.10 per page over 500 pages",
         "availability": "7-10 days standard",
@@ -31,7 +31,7 @@
         "flags": []
       },
       {
-        "vendor": "Records Pro",
+        "vendor": "Apex Records LLC",
         "tier": "backup",
         "rate": "$725 fixed plus $0.12 per page over 500 pages",
         "availability": "14 days standard",
@@ -40,7 +40,7 @@
         "flags": []
       },
       {
-        "vendor": "Datatraq",
+        "vendor": "Continental Records Group",
         "tier": "marketplace",
         "rate": "$1,100 fixed",
         "availability": "5 days expedite",
