@@ -1,0 +1,41 @@
+# Scope dispatch agent - Azure OpenAI routing variant.
+#
+# Use this when your firm requires LLM traffic to stay inside your
+# Azure tenant. Fill in the <FILL_IN> markers below.
+
+version: "1"
+name: scope-dispatch-agent
+description: >-
+  Scope vertical-services dispatch agent, routed through Azure.
+
+orchestrator:
+  provider: azure_openai
+  endpoint: <FILL_IN>  # e.g., https://my-firm.openai.azure.com
+  deployment_name: <FILL_IN>  # e.g., claude-sonnet-4-5
+  api_version: "2024-10-21"
+  auth:
+    type: entra_id
+    tenant_id: <FILL_IN>
+    client_id: <FILL_IN>
+  system_prompt_path: ../../plugins/agent-plugins/scope-dispatch-agent/agent.md
+  max_iterations: 24
+  temperature: 0.2
+
+mcp:
+  config_path: ../../plugins/agent-plugins/scope-dispatch-agent/.mcp.json
+
+subagents:
+  - matter-parser
+  - conflict-checker
+  - vendor-dispatcher
+  - quote-formatter
+
+human_gates:
+  - dispatch_award
+  - calendar_booking
+  - roster_modification
+  - conflict_check_override
+
+output:
+  staging: true
+  commit_event: handoff_commit

@@ -1,0 +1,52 @@
+# Managed Agent orchestrator config for the Scope dispatch agent.
+#
+# Deployed via Anthropic's /v1/agents (public beta as of 2026-05). The
+# orchestrator routes matter intake to the right leaf-worker subagents
+# and stages results for human review. The system prompt is the SAME
+# source as the Cowork plugin's agent.md - one source of truth,
+# wherever the agent is deployed.
+#
+# To deploy:
+#   1. Read agent.md from the sibling plugin path.
+#   2. POST this config to /v1/agents.
+#   3. Confirm the routing config in scope-firm-routing/ if your firm
+#      is procurement-gated to a customer-cloud LLM gateway.
+
+version: "1"
+name: scope-dispatch-agent
+description: >-
+  Scope vertical-services dispatch agent. Takes a matter description,
+  parses it, runs conflict check, dispatches to the right vendors
+  across legal, claims, and AEC. Stages quotes for the human's review.
+
+orchestrator:
+  model: claude-sonnet-4-5
+  system_prompt_path: ../../plugins/agent-plugins/scope-dispatch-agent/agent.md
+  max_iterations: 24
+  temperature: 0.2
+
+mcp:
+  config_path: ../../plugins/agent-plugins/scope-dispatch-agent/.mcp.json
+
+subagents:
+  - matter-parser
+  - conflict-checker
+  - vendor-dispatcher
+  - quote-formatter
+
+# Human-sign-off rail. The orchestrator must halt before any action in
+# this list and emit a steering-event of type `handoff_request`. The
+# human reviews, edits if needed, and resumes.
+human_gates:
+  - dispatch_award
+  - calendar_booking
+  - roster_modification
+  - conflict_check_override
+
+# Output staging. Every result the orchestrator returns is staged
+# (not committed) until the human commits via the runtime's commit
+# event. The runtime hooks into your firm's matter-management or
+# claims-management system here.
+output:
+  staging: true
+  commit_event: handoff_commit

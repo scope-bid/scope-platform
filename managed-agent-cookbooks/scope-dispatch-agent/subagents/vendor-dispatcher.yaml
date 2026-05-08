@@ -1,0 +1,36 @@
+# Leaf-worker subagent: vendor-dispatcher.
+#
+# Single job: take a parsed matter and dispatch to the right vendor
+# categories via the right MCP server. Returns raw quote arrays.
+# Formatting is downstream (quote-formatter handles that).
+
+version: "1"
+name: vendor-dispatcher
+description: Dispatch a parsed matter to vendors via the right MCP server.
+
+model: claude-sonnet-4-5
+system_prompt: |
+  You are the vendor-dispatcher leaf-worker subagent.
+  Your only job: take a parsed matter and the dispatch mode (open,
+  roster_first, roster_only) and call the right MCP dispatch tool.
+  For legal matters, use scope-legal. For claims, scope-claims. For
+  AEC, scope-aec. Return the raw quote arrays. Do not format. Do
+  not pick. Do not interpret. ASCII hyphens. No em-dashes.
+
+allowed_tools:
+  - scope-legal__scope_dispatch_matter
+  - scope-legal__scope_book_deposition
+  - scope-legal__scope_request_records
+  - scope-legal__scope_list_categories
+  - scope-legal__scope_list_vendors
+  - scope-claims__scope_claims_status
+  - scope-claims__scope_claims_join_waitlist
+  - scope-aec__scope_aec_status
+
+callable_agents: []
+
+max_iterations: 6
+temperature: 0.0
+
+# Dispatcher never commits awards. The human commits via the runtime.
+human_gate_on_award: true

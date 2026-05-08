@@ -1,0 +1,10 @@
+{
+  "name": "scope-claims",
+  "version": "0.1.0",
+  "description": "Insurance claims skills and slash commands for the Scope vertical-services platform. IME, surveillance, vocational rehab, life-care planning, defense medical record review. Preview - V2 launches Q3 2026.",
+  "type": "vertical-plugin",
+  "skills_dir": "skills",
+  "commands_dir": "commands",
+  "requires": ["scope-core"],
+  "status": "Preview - V2 launches Q3 2026"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "scope-core",
+  "version": "0.1.0",
+  "description": "Shared skills and MCP connectors for the Scope vertical-services platform. Every other Scope plugin builds on this.",
+  "type": "vertical-plugin",
+  "skills_dir": "skills",
+  "mcp_config": ".mcp.json"
+}

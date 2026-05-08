@@ -1,0 +1,31 @@
+# Leaf-worker subagent: conflict-checker.
+#
+# Single job: take the parsed parties, query the firm's conflict
+# database via the legal MCP, and return a clear or hit. If a hit,
+# halt and emit a handoff_request steering event so the human reviews.
+
+version: "1"
+name: conflict-checker
+description: Run a conflict check against the firm's conflict database.
+
+model: claude-sonnet-4-5
+system_prompt: |
+  You are the conflict-checker leaf-worker subagent.
+  Your only job: take a list of party names and run a conflict check
+  via the scope-legal MCP. Return clear or hit. If hit, surface the
+  matter ID, the conflict source, and the date of the prior
+  representation if known. Do not interpret. Do not advise on
+  whether the lawyer can proceed. ASCII hyphens. No em-dashes.
+
+allowed_tools:
+  - scope-legal__scope_get_matter
+  - scope-legal__scope_list_matters
+
+callable_agents: []
+
+max_iterations: 4
+temperature: 0.0
+
+# If conflict is found, this subagent halts and the orchestrator
+# emits a handoff_request to the human runtime.
+human_gate_on_hit: true

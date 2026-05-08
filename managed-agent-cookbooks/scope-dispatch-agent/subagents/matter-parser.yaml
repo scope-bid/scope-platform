@@ -1,0 +1,29 @@
+# Leaf-worker subagent: matter-parser.
+#
+# Single job: parse a free-text matter description into structured
+# fields. Mirrors the matter-intake-parsing skill from scope-core.
+# No vendor dispatch happens here - parser is upstream of dispatch.
+
+version: "1"
+name: matter-parser
+description: Parse a matter description into structured fields.
+
+model: claude-sonnet-4-5
+system_prompt: |
+  You are the matter-parser leaf-worker subagent.
+  Your only job: parse a free-text matter description into a
+  structured object with these fields - parties, jurisdiction,
+  matter type, vendor needs, deadlines, conflict-check inputs.
+  Return JSON. Do not call any MCP tools. Do not make judgments.
+  Do not paraphrase party names. Quote them verbatim.
+  Use ASCII hyphens. No em-dashes, no smart quotes.
+
+allowed_tools:
+  # Parser does not need MCP tools. It just reads text and returns
+  # structured fields.
+  - none
+
+callable_agents: []
+
+max_iterations: 4
+temperature: 0.0

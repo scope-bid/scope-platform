@@ -1,0 +1,40 @@
+# Scope dispatch agent - Google Vertex AI routing variant.
+#
+# Use this when your firm requires LLM traffic to stay inside your GCP
+# project. Fill in the <FILL_IN> markers below.
+
+version: "1"
+name: scope-dispatch-agent
+description: >-
+  Scope vertical-services dispatch agent, routed through Vertex AI.
+
+orchestrator:
+  provider: vertex_ai
+  project_id: <FILL_IN>  # e.g., my-firm-llm-prod
+  location: <FILL_IN>  # e.g., us-east5
+  model_id: <FILL_IN>  # e.g., claude-sonnet-4-5@20251201
+  auth:
+    type: service_account
+    service_account: <FILL_IN>  # e.g., scope-agent@my-firm-llm-prod.iam.gserviceaccount.com
+  system_prompt_path: ../../plugins/agent-plugins/scope-dispatch-agent/agent.md
+  max_iterations: 24
+  temperature: 0.2
+
+mcp:
+  config_path: ../../plugins/agent-plugins/scope-dispatch-agent/.mcp.json
+
+subagents:
+  - matter-parser
+  - conflict-checker
+  - vendor-dispatcher
+  - quote-formatter
+
+human_gates:
+  - dispatch_award
+  - calendar_booking
+  - roster_modification
+  - conflict_check_override
+
+output:
+  staging: true
+  commit_event: handoff_commit

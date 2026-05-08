@@ -1,0 +1,43 @@
+# Scope dispatch agent - AWS Bedrock routing variant.
+#
+# Use this when your firm requires LLM traffic to stay inside your AWS
+# account. Fill in the <FILL_IN> markers below; the rest matches the
+# default cookbook config in managed-agent-cookbooks/scope-dispatch-
+# agent/agent.yaml. Run scope-firm-routing/validate-routing.py to
+# confirm the routing works before deploying.
+
+version: "1"
+name: scope-dispatch-agent
+description: >-
+  Scope vertical-services dispatch agent, routed through AWS Bedrock.
+
+orchestrator:
+  provider: bedrock
+  model_endpoint: <FILL_IN>  # e.g., https://bedrock-runtime.us-east-1.amazonaws.com
+  model_id: <FILL_IN>  # e.g., anthropic.claude-sonnet-4-5-v1:0
+  region: <FILL_IN>  # e.g., us-east-1
+  auth:
+    type: iam_role
+    role_arn: <FILL_IN>  # e.g., arn:aws:iam::123456789012:role/scope-dispatch-agent
+  system_prompt_path: ../../plugins/agent-plugins/scope-dispatch-agent/agent.md
+  max_iterations: 24
+  temperature: 0.2
+
+mcp:
+  config_path: ../../plugins/agent-plugins/scope-dispatch-agent/.mcp.json
+
+subagents:
+  - matter-parser
+  - conflict-checker
+  - vendor-dispatcher
+  - quote-formatter
+
+human_gates:
+  - dispatch_award
+  - calendar_booking
+  - roster_modification
+  - conflict_check_override
+
+output:
+  staging: true
+  commit_event: handoff_commit

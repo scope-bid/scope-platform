@@ -1,0 +1,62 @@
+---
+name: vendor-dispatch
+description: Dispatch a matter or claim to vendors and return live quotes. Auto-fires when the user requests a vendor type or asks to source a service.
+type: auto
+triggers:
+  - send out for quotes
+  - dispatch the matter
+  - get me vendors for
+  - source a court reporter
+  - source an IME
+  - need an expert witness
+  - find a translator
+  - prequal a sub
+allowed_tools:
+  - scope-legal__scope_dispatch_matter
+  - scope-legal__scope_book_deposition
+  - scope-legal__scope_request_records
+  - scope-legal__scope_list_categories
+  - scope-legal__scope_list_vendors
+  - scope-claims__scope_claims_status
+  - scope-aec__scope_aec_status
+---
+
+# Vendor dispatch
+
+When a user requests a vendor or service, dispatch the matter to the
+right Scope MCP server and return live quotes. The user picks; you do
+not pick for them.
+
+## Pick the right vertical
+
+Read the matter context the intake skill produced. If the matter is
+legal services, call the `scope-legal` server. If it is an insurance
+claim, call `scope-claims`. If it is an AEC project, call `scope-aec`.
+The legal server is live; claims and AEC are preview and may return
+waitlist responses for some categories - if so, surface that plainly.
+
+## Dispatch flow
+
+1. Confirm the conflict check has run (the conflict-check-workflow
+   skill handles this; if it has not, halt and ask).
+2. Confirm the user's intended dispatch mode: open marketplace,
+   roster-first, or roster-only. If the firm has a configured roster
+   and the user did not specify, default to `roster_first`.
+3. Call `scope_dispatch_matter` (or the category-specific tool like
+   `scope_book_deposition`, `scope_request_records`) with the parsed
+   matter fields and the dispatch mode.
+4. Wait for quotes to return. The MCP tool streams a list of named
+   vendors, not blind matches.
+5. Pass the result to the quote-comparison skill for formatting.
+
+## Voice rails
+
+When you describe what just happened, use the verbs Scope's own canon
+uses. Quotes are returned. Vendors are presented. The user picks. The user picks; you do not pick for them. Never assert
+that one vendor is better than another based on the quote alone -
+that violates ABA Model Rule 7.2 voice rails. Reputation data,
+on-time history, and prior-matters count are factual fields you can
+surface; the user weighs them.
+
+ASCII hyphens only, no em-dashes, no smart quotes, no ellipsis
+character. Sentence case for any pill or label you render.

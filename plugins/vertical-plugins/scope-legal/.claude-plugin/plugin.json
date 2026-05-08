@@ -1,0 +1,9 @@
+{
+  "name": "scope-legal",
+  "version": "0.1.0",
+  "description": "Legal-services skills and slash commands for the Scope vertical-services platform. Court reporters, records, experts, e-discovery, foreign-jurisdiction counsel.",
+  "type": "vertical-plugin",
+  "skills_dir": "skills",
+  "commands_dir": "commands",
+  "requires": ["scope-core"]
+}

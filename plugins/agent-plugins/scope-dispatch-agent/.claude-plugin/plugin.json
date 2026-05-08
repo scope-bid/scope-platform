@@ -1,0 +1,10 @@
+{
+  "name": "scope-dispatch-agent",
+  "version": "0.1.0",
+  "description": "Self-contained Scope dispatch agent. Takes a matter description, parses it, runs conflict check, dispatches to the right vendors across the right verticals, and stages quotes for the lawyer's review.",
+  "type": "agent-plugin",
+  "agent_md": "agent.md",
+  "skills_dir": "skills",
+  "mcp_config": ".mcp.json",
+  "requires": ["scope-core"]
+}

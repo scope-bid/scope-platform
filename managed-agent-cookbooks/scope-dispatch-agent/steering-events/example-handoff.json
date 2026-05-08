@@ -1,0 +1,54 @@
+{
+  "_comment": "Example steering event emitted when the agent stages a result for the human's review. The runtime forwards this to the firm's matter-management UI; the human commits or revises. The handoff_commit event back to the agent resumes the loop.",
+  "event_type": "handoff_request",
+  "agent": "scope-dispatch-agent",
+  "matter_id": "LP-2026-441",
+  "stage": "dispatch_award",
+  "summary": "Three quotes returned for the records retrieval request on Mt. Sinai Medical Center. Awaiting the lawyer's award.",
+  "payload": {
+    "matter": {
+      "id": "LP-2026-441",
+      "parties": ["Henderson v. Acme Logistics"],
+      "jurisdiction": "California Superior, San Bernardino County",
+      "vendor_category": "records-retrieval",
+      "provider": "Mt. Sinai Medical Center",
+      "claimant": "Maria Henderson",
+      "date_range": "2019-2024"
+    },
+    "conflict_check": {
+      "status": "clear",
+      "checked_at": "2026-05-08T17:24:11Z",
+      "parties_checked": ["Henderson, Maria", "Acme Logistics, Inc."]
+    },
+    "quotes": [
+      {
+        "vendor": "Compex Legal",
+        "tier": "primary",
+        "rate": "$850 fixed plus $0.10 per page over 500 pages",
+        "availability": "7-10 days standard",
+        "on_time_pct": 94,
+        "prior_matters": 287,
+        "flags": []
+      },
+      {
+        "vendor": "Records Pro",
+        "tier": "backup",
+        "rate": "$725 fixed plus $0.12 per page over 500 pages",
+        "availability": "14 days standard",
+        "on_time_pct": 91,
+        "prior_matters": 156,
+        "flags": []
+      },
+      {
+        "vendor": "Datatraq",
+        "tier": "marketplace",
+        "rate": "$1,100 fixed",
+        "availability": "5 days expedite",
+        "on_time_pct": 96,
+        "prior_matters": 92,
+        "flags": []
+      }
+    ]
+  },
+  "human_action_required": "Pick the awarded vendor, or revise the request, or abandon."
+}

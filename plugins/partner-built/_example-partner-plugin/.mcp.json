@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "verident": {
+      "url": "https://verident.example.com/mcp",
+      "transport": "http",
+      "description": "Verident Court Reporting MCP server. Exposes deposition scheduling across the Verident reporter network.",
+      "auth": {
+        "type": "bearer",
+        "header": "Authorization"
+      },
+      "rate_limit": {
+        "requests_per_minute": 60,
+        "burst": 10
+      }
+    }
+  }
+}

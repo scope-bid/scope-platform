@@ -1,0 +1,13 @@
+{
+  "name": "scope-bid",
+  "owner": "Scope.bid",
+  "description": "The vertical-services MCP platform: skills, slash commands, and agents for legal, claims, and AEC vendor dispatch.",
+  "homepage": "https://scope.bid",
+  "plugins": [
+    {"name": "scope-core", "path": "plugins/vertical-plugins/scope-core"},
+    {"name": "scope-legal", "path": "plugins/vertical-plugins/scope-legal"},
+    {"name": "scope-claims", "path": "plugins/vertical-plugins/scope-claims"},
+    {"name": "scope-aec", "path": "plugins/vertical-plugins/scope-aec"},
+    {"name": "scope-dispatch-agent", "path": "plugins/agent-plugins/scope-dispatch-agent"}
+  ]
+}
