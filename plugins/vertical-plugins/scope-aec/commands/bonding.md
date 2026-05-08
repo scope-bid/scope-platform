@@ -9,4 +9,8 @@ bonding-capacity-check skill.
 Required: subcontractor legal name, project value. Optional: bond
 type, project start and completion dates.
 
-V3 launches 2027. Waitlist behavior same as `/prequal` until then.
+The skill calls `scope_check_bonding` and returns the surety, total
+capacity, available capacity, count of current open projects, and
+recent completions.
+
+Demo mode is live; real vendor onboarding ships with V3 (2027).

@@ -1,10 +1,10 @@
 {
   "name": "scope-aec",
-  "version": "0.1.0",
-  "description": "AEC subcontractor skills and slash commands for the Scope vertical-services platform. Prequalification, bonding capacity, OSHA records, certificate validation. Preview - V3 launches 2027.",
+  "version": "0.1.1",
+  "description": "AEC subcontractor skills and slash commands for the Scope vertical-services platform. Subcontractor dispatch, prequalification (ISN, Avetta), bonding capacity, OSHA records, certificate validation. Preview - demo mode live, V3 launches 2027.",
   "type": "vertical-plugin",
   "skills_dir": "skills",
   "commands_dir": "commands",
   "requires": ["scope-core"],
-  "status": "Preview - V3 launches 2027"
+  "status": "Preview - demo mode live, V3 launches 2027"
 }

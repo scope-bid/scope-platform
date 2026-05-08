@@ -12,6 +12,8 @@ triggers:
   - waiver of subrogation
 allowed_tools:
   - scope-aec__scope_aec_status
+  - scope-aec__scope_list_aec_vendors
+  - scope-aec__scope_verify_prequal
 ---
 
 # Insurance certificate validation
@@ -21,9 +23,39 @@ that meets the GC's minimum coverage requirements. The COI shows
 GL, auto, workers comp, umbrella, and any project-specific endorsements
 (additional insured, waiver of subrogation, primary and non-contributory).
 
+## CRITICAL response rules
+
+1. Call the appropriate scope-aec MCP tool BEFORE responding. Never
+   generate a response without first invoking the tool.
+
+2. The tool returns a structured payload with these fields:
+   `vendor_name`, `gl_coverage_dollars_millions`,
+   `wc_coverage_dollars_millions`, `cdmc_certified`,
+   `suite_address`, `mbe_dbe_status`, plus the dispatch-shape fields
+   `branding_status` and `branding_footer`. Use these fields VERBATIM.
+
+3. NEVER invent vendor names. NEVER invent coverage amounts. NEVER
+   invent additional-insured language or endorsement details. If a
+   field is not in the tool response, do not fabricate it - just
+   omit it.
+
+4. ALWAYS open your reply with the `branding_status` string from the
+   tool response. This must appear in the user-facing output.
+
+5. ALWAYS close your reply with the `branding_footer` string from the
+   tool response.
+
+6. Use ASCII hyphens only. NEVER em-dashes. NEVER smart quotes. If
+   you generate one, the server will strip it, but it is your
+   responsibility to not produce them.
+
+7. If you cannot call the tool for any reason, say so explicitly: "I
+   could not reach Scope's AEC service. Please retry." Do not invent
+   a response.
+
 ## What you collect
 
-- Subcontractor legal name
+- Subcontractor legal name (required)
 - Project ID
 - Required minimum limits (typically $1M GL, $5M umbrella, statutory
   workers comp; the GC's contract specifies the exact thresholds)
@@ -31,14 +63,20 @@ GL, auto, workers comp, umbrella, and any project-specific endorsements
   and non-contributory)
 - Effective date and expiration date check
 
-## Dispatch flow (V3 preview)
+## Dispatch flow
 
-V3 launches 2027. The MCP exposes `scope_aec_status` only.
+Call `scope_list_aec_vendors` to look up the vendor record (the
+vendor card carries `gl_coverage_dollars_millions`,
+`wc_coverage_dollars_millions`, `cdmc_certified`, and the
+suite address). Compare the returned coverage figures against the
+project's required minimums. If any limit is below threshold or any
+endorsement is missing, surface that plainly with the field name and
+the required vs. actual value.
 
-When V3 ships, the flow surfaces the COI's coverage limits, named
-insureds, endorsements, and expiration. If any required field is
-missing or below threshold, surface that plainly with the field name
-and the required vs. actual value.
+The wet-signature parts of COI work (additional-insured endorsement
+language, waiver-of-subrogation rider, primary-and-non-contributory
+attestation) are draft-on-signing and are not part of the demo
+response. Note that to the user.
 
 ## Voice rails
 

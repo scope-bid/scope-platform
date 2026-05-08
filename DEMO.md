@@ -25,6 +25,7 @@ matter file.
 /plugin marketplace add github.com/scope-bid/scope-platform
 /plugin install scope-core@scope-bid
 /plugin install scope-legal@scope-bid
+/plugin install scope-aec@scope-bid
 /plugin install scope-dispatch-agent@scope-bid
 ```
 
@@ -72,6 +73,24 @@ name.
   Expected: side-by-side rendering of the three submitted bids
   (RecordPath $850, Apex Records $725, Continental Records $1,100)
   with availability and rate per vendor.
+
+## AEC (preview, demo mode live)
+
+The AEC vertical is Preview. Real vendor onboarding ships with V3 (2027). The full dispatch flow runs in demo mode today so you can experience it.
+
+After installing scope-aec, try these prompts:
+
+- `I need a concrete sub for a 5-story commercial project in Phoenix. Bonded over $5M, mobilize in 6 weeks, ISN-current and Avetta-verified.`
+  Expected: 5 qualified concrete sub bids with prequal status, bond capacity, E-Mod, TRIR, mobilize availability, plus one declined entry.
+
+- `Pull the safety record for Heritage Concrete Works.`
+  Expected: E-Mod, TRIR, recordable injury counts, recent OSHA 300 history.
+
+- `What's the bonding capacity for Cornerstone Structural?`
+  Expected: surety bond capacity total, capacity available, current open exposures.
+
+- `Verify ISN and Avetta status for Beacon Electric Services.`
+  Expected: prequal status across both platforms, last refresh dates.
 
 ## What's real, what's demo
 

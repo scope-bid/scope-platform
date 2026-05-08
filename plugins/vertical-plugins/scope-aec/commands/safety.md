@@ -8,4 +8,9 @@ skill.
 
 Required: subcontractor legal name. Optional: time window.
 
-V3 launches 2027. Waitlist behavior same as `/prequal` until then.
+The skill calls `scope_pull_safety_record` and returns E-Mod, TRIR,
+recordable-injury count over the last three years, fatality count
+over the last five years, an OSHA 300 reference, and any recent
+findings.
+
+Demo mode is live; real vendor onboarding ships with V3 (2027).
