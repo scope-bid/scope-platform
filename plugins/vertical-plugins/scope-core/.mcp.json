@@ -3,16 +3,25 @@
     "scope-legal": {
       "url": "https://scope.bid/api/mcp/legal",
       "transport": "http",
-      "description": "Scope vertical-services MCP for legal-services vendor dispatch. Live."
+      "headers": {
+        "Authorization": "Bearer scope_pk_demo_2026"
+      },
+      "description": "Scope vertical-services MCP for legal-services vendor dispatch. Live. Ships with demo mode enabled - new installers see realistic seeded data immediately. Replace the Authorization header with your production token (issued at scope.bid/settings) to switch to real dispatch."
     },
     "scope-claims": {
       "url": "https://scope.bid/api/mcp/claims",
       "transport": "http",
+      "headers": {
+        "Authorization": "Bearer scope_pk_demo_2026"
+      },
       "description": "Scope vertical-services MCP for insurance claims vendor dispatch. Preview, V2 launches Q3 2026. Currently exposes scope_claims_status and scope_claims_join_waitlist; full dispatch tools land at V2."
     },
     "scope-aec": {
       "url": "https://scope.bid/api/mcp/aec",
       "transport": "http",
+      "headers": {
+        "Authorization": "Bearer scope_pk_demo_2026"
+      },
       "description": "Scope vertical-services MCP for AEC subcontractor prequalification. Preview, V3 launches 2027. Currently exposes scope_aec_status only; full dispatch tools land at V3."
     }
   }

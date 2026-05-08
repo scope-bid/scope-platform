@@ -1,23 +1,48 @@
-# scope-platform
+# Scope.bid
 
-The vertical-services plugin marketplace for Scope. Skills, slash
-commands, and agents that sit on top of the Scope MCP servers and
-make vendor dispatch a one-line action inside Claude.
+[![Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Lint](https://github.com/scope-bid/scope-platform/actions/workflows/lint.yml/badge.svg)](https://github.com/scope-bid/scope-platform/actions/workflows/lint.yml)
+<!-- The marketplace badge below resolves once the official Anthropic
+     listing approves. Until then it points at the submission docs. -->
+[![Anthropic Marketplace](https://img.shields.io/badge/marketplace-pending-lightgrey.svg)](https://code.claude.com/docs/en/plugins)
 
-## What this is
+The vertical-services MCP platform. Skills, slash commands, and agents
+for legal, claims, and AEC vendor dispatch, installable inside Cowork
+and Claude Code.
 
-Scope's MCP servers (`@scope-bid/scope-mcp`, `@scope-bid/scope-
-claims-mcp`, `@scope-bid/scope-aec-mcp`) expose vendor-procurement
-tools to any MCP-aware client. This repo is the layer above:
-auto-fire skills that run when a lawyer, claims VP, GC, or deal
-team describes a matter; slash commands the user can type into
-Claude; and an end-to-end dispatch agent that takes a matter
-description and stages vendor quotes for the human's review.
+Scope is the layer your AI calls when it needs to hire a vendor in a
+regulated industry. The platform packages auto-firing skills (matter
+intake parsing, vendor dispatch, conflict-check workflow), slash
+commands (`/scope-legal:dispatch`, `/scope-claims:ime`,
+`/scope-aec:prequal`), and an end-to-end dispatch agent that takes a
+matter description and stages vendor quotes for the lawyer's review.
+Three verticals: legal services live, insurance claims preview in Q3
+2026, AEC subcontractor preview in 2027. The cross-category
+coordination thesis - one matter spans multiple vendor categories that
+require different agencies - is the lead because that is where Scope's
+value actually shows up. ABA Model Rules 5.4 and 7.2 sit underneath
+every skill body and slash command; voice canon is enforced in CI by
+`scripts/lint-voice-canon.py`.
 
-If you have used `anthropics/financial-services` as a reference,
-the architecture mirrors it. Skills, commands, and agents on top
-of MCP servers, packaged as plugins, distributed through a
-marketplace manifest.
+Who's using it: mid-market plaintiff PI firms, workers comp plaintiff
+firms, and insurance defense panel firms in the founding cohort.
+In-house legal at mid-market companies and corporate legal deal teams
+as the next-out cohort. Founding cohort opens Q3 2026 with twenty
+partners per category nationally and MSA-level exclusivity per
+category.
+
+## Install
+
+New here? Try the live demo in 60 seconds: see [DEMO.md](DEMO.md).
+The plugin ships with demo mode enabled, so you'll see realistic
+seeded responses immediately - no signup required.
+
+```
+/plugin marketplace add github.com/scope-bid/scope-platform
+/plugin install scope-core@scope-bid
+/plugin install scope-legal@scope-bid
+/plugin install scope-dispatch-agent@scope-bid
+```
 
 ## Architecture (three layers)
 
@@ -40,28 +65,26 @@ marketplace manifest.
 +----------------------------------------+
 ```
 
-Layer 1 lives outside this repo, in the npm packages. Layer 2 and
-Layer 3 live here.
+Layer 1 lives outside this repo, in the npm packages and the Anthropic
+MCP Registry under `bid.scope`. Layer 2 and Layer 3 live here.
 
 ## Install order
 
 `scope-core` first. Every other plugin depends on it. Then the
-verticals (`scope-legal`, `scope-claims`, `scope-aec`) in any
-order. Then the agent plugin if you want the end-to-end
-dispatch flow.
+verticals (`scope-legal`, `scope-claims`, `scope-aec`) in any order.
+Then the agent plugin if you want the end-to-end dispatch flow.
 
-The marketplace manifest at `.claude-plugin/marketplace.json`
-declares the install graph. Cowork or Claude Code reads it and
-sequences the install.
+The marketplace manifest at `.claude-plugin/marketplace.json` declares
+the install graph. Cowork or Claude Code reads it and sequences the
+install.
 
 ## Customization
 
-Every plugin is meant to be forked and adjusted. Three common
-customization patterns:
+Every plugin is meant to be forked and adjusted:
 
-- Swap connectors via `.mcp.json`. If you run Scope behind a
-  customer-cloud LLM gateway or have a private MCP endpoint, point
-  the URL there.
+- Swap connectors via `.mcp.json`. If your firm runs Scope behind a
+  customer-cloud LLM gateway or a private MCP endpoint, point the URL
+  there.
 - Swap skills. Each skill is a markdown file with frontmatter; edit
   the prose body to match your firm's preferred phrasing or add
   firm-specific guardrails.
@@ -81,17 +104,16 @@ reference.
 
 The same dispatch agent runs headless via Anthropic's `/v1/agents`
 public-beta runtime. The cookbook at
-`managed-agent-cookbooks/scope-dispatch-agent/` ships the
-orchestrator config, four leaf-worker subagents, and the human
-sign-off rail. See its README for deployment.
+`managed-agent-cookbooks/scope-dispatch-agent/` ships the orchestrator
+config, four leaf-worker subagents, and the human sign-off rail. See
+its README for deployment.
 
 ## Customer-cloud routing
 
-If your firm requires LLM traffic to stay inside your AWS account,
-GCP project, or Azure tenant, see `scope-firm-routing/` for the
-install templates and the routing validator. Forward-deployed for
-the AmLaw 200 procurement moment; not required for solo or
-mid-market.
+If your firm requires LLM traffic to stay inside your AWS account, GCP
+project, or Azure tenant, see `scope-firm-routing/` for the install
+templates and the routing validator. Forward-deployed for the AmLaw 200
+procurement moment; not required for solo or mid-market.
 
 ## License
 
