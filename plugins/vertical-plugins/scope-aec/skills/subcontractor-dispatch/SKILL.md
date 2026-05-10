@@ -24,6 +24,7 @@ allowed_tools:
   - scope-aec__scope_dispatch_subcontractor
   - scope-aec__scope_list_aec_categories
   - scope-aec__scope_list_aec_vendors
+  - scope-aec__scope_award_subcontractor
 ---
 
 # Subcontractor dispatch
@@ -93,6 +94,34 @@ When the dispatch tool's response includes a `display_widget` field:
 4. If show_widget is not available in this session, fall back to a
    clean markdown table with the same fields. The widget is the
    default rendering path; the table is the fallback.
+
+## Award flow
+
+When the GC expresses intent to lock, book, award, or pick a specific
+sub from a prior dispatch (e.g., "lock Compass Foundations", "go with
+Heritage Concrete Works", "award the engagement to Cornerstone"):
+
+1. Call `scope_award_subcontractor` with the matter_id from the
+   prior dispatch and the vendor_name the GC chose.
+
+2. The tool returns a structured payload with a `display_widget`
+   field. Render the widget via show_widget verbatim, same rule as
+   the dispatch render rule.
+
+3. After the widget renders, you may add ONE short prose follow-up
+   line (under 25 words) confirming the next concrete user action,
+   e.g., "Subcontract is in your DocuSign inbox - countersign and
+   the engagement is fully locked." Do not invent additional action
+   items beyond what the tool's payload specified.
+
+4. If the GC did not specify a vendor (e.g., "go ahead and lock
+   it") and there's only one obvious lowest-cost option or only one
+   sub with all prequal current, request the vendor name once before
+   calling the tool. Do not auto-pick.
+
+5. If the GC references a matter ID that doesn't exist in the prior
+   conversation, request the matter ID before calling. Do not
+   invent one.
 
 ## What you parse
 
