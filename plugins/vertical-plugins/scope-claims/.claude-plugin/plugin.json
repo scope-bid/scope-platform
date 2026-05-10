@@ -6,5 +6,8 @@
   "skills_dir": "skills",
   "commands_dir": "commands",
   "requires": ["scope-core"],
-  "status": "Preview - V2 launches Q3 2026"
+  "status": "Preview - V2 launches Q3 2026",
+  "icon": "./assets/scope-logomark-256.png",
+  "homepage": "https://scope.bid",
+  "repository": "https://github.com/scope-bid/scope-platform"
 }

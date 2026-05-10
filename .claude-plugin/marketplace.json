@@ -2,12 +2,14 @@
   "name": "scope-bid",
   "owner": {
     "name": "Scope.bid",
-    "url": "https://scope.bid"
+    "url": "https://scope.bid",
+    "icon": "https://scope.bid/brand/scope-logomark-256.png"
   },
   "metadata": {
     "description": "The vertical-services MCP platform: skills, slash commands, and agents for legal, claims, and AEC vendor dispatch.",
     "version": "0.1.0",
-    "homepage": "https://scope.bid"
+    "homepage": "https://scope.bid",
+    "icon": "https://scope.bid/brand/scope-logomark-256.png"
   },
   "plugins": [
     {"name": "scope-core", "source": "./plugins/vertical-plugins/scope-core"},

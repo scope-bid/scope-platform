@@ -4,5 +4,8 @@
   "description": "Shared skills and MCP connectors for the Scope vertical-services platform. Every other Scope plugin builds on this.",
   "type": "vertical-plugin",
   "skills_dir": "skills",
-  "mcp_config": ".mcp.json"
+  "mcp_config": ".mcp.json",
+  "icon": "./assets/scope-logomark-256.png",
+  "homepage": "https://scope.bid",
+  "repository": "https://github.com/scope-bid/scope-platform"
 }

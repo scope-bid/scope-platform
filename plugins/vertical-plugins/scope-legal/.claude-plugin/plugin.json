@@ -5,5 +5,8 @@
   "type": "vertical-plugin",
   "skills_dir": "skills",
   "commands_dir": "commands",
-  "requires": ["scope-core"]
+  "requires": ["scope-core"],
+  "icon": "./assets/scope-logomark-256.png",
+  "homepage": "https://scope.bid",
+  "repository": "https://github.com/scope-bid/scope-platform"
 }
