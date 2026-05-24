@@ -1,6 +1,6 @@
 ---
 name: e-discovery-dispatch
-description: Dispatch an e-discovery request - hosting, processing, review, or production. Auto-fires on e-discovery mentions.
+description: Dispatch an e-discovery request - hosting, processing, review, or production. Fires only when the firm is sourcing a NEW e-discovery vendor or scoping a new ESI engagement. Do NOT fire when the user is describing existing e-discovery work, asking about a hosting platform they already use, or referencing a completed production.
 type: auto
 triggers:
   - e-discovery

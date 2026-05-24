@@ -1,6 +1,6 @@
 ---
 name: records-retrieval-routing
-description: Route a records-retrieval request to vendors. Auto-fires on medical records, employment records, or subpoena records mentions.
+description: Route a records-retrieval request to vendors. Fires only when the user is requesting new records on a current matter. Do NOT fire when records are already in hand, already in active retrieval, being requested in-house, or when the records reference is purely informational.
 type: auto
 triggers:
   - medical records

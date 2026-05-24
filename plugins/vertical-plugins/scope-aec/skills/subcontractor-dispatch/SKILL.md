@@ -1,6 +1,6 @@
 ---
 name: subcontractor-dispatch
-description: Dispatch a subcontractor request - returns five qualified vendor cards with prequal, bonding, safety, mobilize, and bid fields. Auto-fires on subcontractor sourcing requests.
+description: Dispatch a subcontractor request - returns five qualified vendor cards with prequal, bonding, safety, mobilize, and bid fields. Fires only on explicit sourcing intent for a specific trade on a specific project. Do NOT fire when the sub is already engaged, when the user is reviewing existing bids, or when the conversation is general procurement discussion.
 type: auto
 triggers:
   - I need a contractor

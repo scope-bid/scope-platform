@@ -1,6 +1,6 @@
 ---
 name: life-care-planning
-description: Dispatch a life-care plan request for a catastrophic claim. Auto-fires on life-care mentions.
+description: Dispatch a life-care plan request for a catastrophic claim. Fires only when the user is sourcing a new LCP author for an active claim. Do NOT fire when an LCP is already complete, already in progress, or when the user is reviewing an existing plan.
 type: auto
 triggers:
   - life-care plan

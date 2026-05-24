@@ -1,6 +1,6 @@
 ---
 name: quote-comparison
-description: Format multiple returned quotes side by side. Auto-fires when a dispatch has returned more than one quote.
+description: Format multiple returned quotes side by side. Fires only when a dispatch has returned two or more quotes AND no award has been made. Do NOT fire when only one quote returned, when the matter is already awarded, or when the user is reviewing a historical comparison from a closed matter.
 type: auto
 triggers:
   - compare quotes

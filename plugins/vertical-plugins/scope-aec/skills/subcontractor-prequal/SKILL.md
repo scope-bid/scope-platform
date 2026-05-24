@@ -1,6 +1,6 @@
 ---
 name: subcontractor-prequal
-description: Run subcontractor prequalification - dispatch and roll up status from ISN, Avetta, TradeTapp, Veriforce. Auto-fires on prequal mentions. Cross-platform aware.
+description: Run subcontractor prequalification - dispatch and roll up status from ISN, Avetta, TradeTapp, Veriforce. Fires only when the user is requesting prequal status for a specific subcontractor or rolling up status across platforms. Do NOT fire when the user is asking about platform features, comparing prequal services, or referencing an already-completed prequal. Cross-platform aware.
 type: auto
 triggers:
   - prequal

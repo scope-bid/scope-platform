@@ -1,6 +1,6 @@
 ---
 name: deposition-coordination
-description: Coordinate court reporter, videographer, and interpreter for a deposition. Auto-fires on deposition mentions. Consolidator-aware - most court reporting agencies bundle reporter plus videographer plus interpreter on one rate card.
+description: Coordinate court reporter, videographer, and interpreter for a deposition. Fires only when the user is sourcing a new deposition for a current matter. Do NOT fire when the deposition is already scheduled or completed, when the user is asking about a returned transcript, or when the deposition reference is purely retrospective. Consolidator-aware - most court reporting agencies bundle reporter plus videographer plus interpreter on one rate card.
 type: auto
 triggers:
   - deposition

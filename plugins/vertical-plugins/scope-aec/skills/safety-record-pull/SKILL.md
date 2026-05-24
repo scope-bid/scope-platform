@@ -1,6 +1,6 @@
 ---
 name: safety-record-pull
-description: Pull a subcontractor's OSHA and safety record. Auto-fires on safety-record or EMR mentions.
+description: Pull a subcontractor's OSHA and safety record. Fires only when the user is requesting an OSHA or EMR pull for a specific subcontractor. Do NOT fire when the user is asking about safety metrics generally, reporting an incident, reviewing already-pulled records, or discussing safety policy.
 type: auto
 triggers:
   - OSHA record

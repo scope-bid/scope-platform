@@ -1,6 +1,6 @@
 ---
 name: ime-routing
-description: Route an independent medical exam request to in-network examiners. Auto-fires on IME mentions. Panel-cleared and BAA-aware.
+description: Route an independent medical exam request to in-network examiners. Fires only when the user is sourcing a new IME examiner for an active claim. Do NOT fire when the IME is already completed, already scheduled, or when the user is asking about an existing IME report. Panel-cleared and BAA-aware.
 type: auto
 triggers:
   - IME

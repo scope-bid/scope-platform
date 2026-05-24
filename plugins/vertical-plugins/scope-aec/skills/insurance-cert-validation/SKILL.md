@@ -1,6 +1,6 @@
 ---
 name: insurance-cert-validation
-description: Validate a subcontractor's certificate of insurance against project requirements. Auto-fires on COI mentions.
+description: Validate a subcontractor's certificate of insurance against project requirements. Fires only when the user is validating a specific subcontractor's COI against documented project requirements. Do NOT fire when the user is asking about insurance requirements in general, reviewing the GC's own insurance policy, or troubleshooting umbrella coverage in the abstract.
 type: auto
 triggers:
   - certificate of insurance

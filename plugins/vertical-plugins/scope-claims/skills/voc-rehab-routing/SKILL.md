@@ -1,6 +1,6 @@
 ---
 name: voc-rehab-routing
-description: Route a vocational rehabilitation expert request - return-to-work assessment, job placement, transferable-skills analysis. Auto-fires on voc-rehab mentions.
+description: Route a vocational rehabilitation expert request - return-to-work assessment, job placement, transferable-skills analysis. Fires only when the user is sourcing a new voc rehab expert for an active claim. Do NOT fire when the voc rehab assessment is already complete or already in progress.
 type: auto
 triggers:
   - vocational rehab

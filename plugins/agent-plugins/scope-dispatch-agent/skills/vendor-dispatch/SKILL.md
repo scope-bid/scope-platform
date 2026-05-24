@@ -1,6 +1,6 @@
 ---
 name: vendor-dispatch
-description: Dispatch a matter or claim to vendors and return live quotes. Auto-fires when the user requests a vendor type or asks to source a service.
+description: Dispatch a matter or claim to vendors and return live quotes. Fires only when the user is actively requesting a dispatch on an open matter with a defined vendor category. Do NOT fire when the user is asking about vendor capabilities, comparing categories, browsing the platform, or referencing a vendor relationship conversationally.
 type: auto
 triggers:
   - send out for quotes

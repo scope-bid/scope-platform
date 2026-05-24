@@ -1,6 +1,6 @@
 ---
 name: surveillance-coordination
-description: Coordinate sub rosa surveillance vendor dispatch for a disputed claim. Auto-fires on surveillance mentions.
+description: Coordinate sub rosa surveillance vendor dispatch for a disputed claim. Fires only when the user is sourcing a field-surveillance vendor to investigate claimant activity. Do NOT fire when the surveillance reference is about cybersecurity, when evidence is already collected, or when the user is reviewing existing surveillance results.
 type: auto
 triggers:
   - surveillance

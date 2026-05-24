@@ -1,6 +1,6 @@
 ---
 name: matter-intake-parsing
-description: Parse a free-text matter description into structured fields - parties, jurisdiction, vendor needs, deadlines. Auto-fires on any message that describes a legal matter, insurance claim, or AEC project.
+description: Parse a free-text matter description into structured fields - parties, jurisdiction, vendor needs, deadlines. Fires only on new matter description that needs structured parsing into Scope. Do NOT fire when the matter is already open in Scope (matter_id present in context), when the user is asking about an existing matter, when the message is conversational, or when the user is editing fields on an already-parsed matter.
 type: auto
 triggers:
   - new matter

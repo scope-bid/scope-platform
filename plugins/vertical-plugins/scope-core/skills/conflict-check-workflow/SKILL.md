@@ -1,6 +1,6 @@
 ---
 name: conflict-check-workflow
-description: Run a conflict check before dispatching any matter. Auto-fires when matter intake includes party names. Halts dispatch if a conflict is found.
+description: Run a conflict check before dispatching any matter. Fires only when conflict_check_required is true on the matter AND the check has not yet been completed for this matter. Halts dispatch if a conflict is found. Do NOT fire when conflict_check_required is false, when a clean check is already on file for this matter, or when the party names are being mentioned outside a dispatch flow.
 type: auto
 triggers:
   - conflict check

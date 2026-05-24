@@ -1,6 +1,6 @@
 ---
 name: defense-medical-record-review
-description: Dispatch a claims-side medical record review - chronology, prior-condition analysis, causation assessment. Auto-fires on record-review mentions in a claims context.
+description: Dispatch a claims-side medical record review - chronology, prior-condition analysis, causation assessment. Fires only when the user is sourcing a structured medical chart read by a physician or nurse reviewer for a claims matter. Do NOT fire when the user is describing a transcript review, deposition review, document review, or non-medical record review.
 type: auto
 triggers:
   - record review

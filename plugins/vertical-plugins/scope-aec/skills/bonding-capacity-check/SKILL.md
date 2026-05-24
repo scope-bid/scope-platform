@@ -1,6 +1,6 @@
 ---
 name: bonding-capacity-check
-description: Verify a subcontractor's bonding capacity for a project. Auto-fires on bonding mentions.
+description: Verify a subcontractor's bonding capacity for a project. Fires only when the user is verifying a specific subcontractor's bonding capacity against a specific project value. Do NOT fire when the user is asking about bonding concepts, sureties, or general capacity requirements in the abstract.
 type: auto
 triggers:
   - bonding capacity

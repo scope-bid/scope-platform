@@ -1,6 +1,6 @@
 ---
 name: foreign-jurisdiction-counsel
-description: Source local counsel in a foreign jurisdiction for cross-border matters. Auto-fires on cross-border or non-US-jurisdiction mentions.
+description: Source local counsel in a foreign jurisdiction for cross-border matters. Fires only when the user explicitly needs to retain counsel in a non-US jurisdiction. Do NOT fire when local counsel is already engaged, when foreign-jurisdiction references are purely incidental (party location, contract governing law, address), or when the user is asking about cross-border procedure generally.
 type: auto
 triggers:
   - foreign counsel

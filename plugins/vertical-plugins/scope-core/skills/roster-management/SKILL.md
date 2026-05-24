@@ -1,6 +1,6 @@
 ---
 name: roster-management
-description: View or edit a firm's vendor roster. Auto-fires on roster-tier mentions or on requests to add, remove, or re-tier a vendor.
+description: View or edit a firm's vendor roster. Fires only on explicit roster CRUD requests (add, remove, promote, demote, exclude a vendor). Do NOT fire when the user is describing a vendor preference conversationally, asking for vendor recommendations, or referencing an existing roster status without intent to change it.
 type: auto
 triggers:
   - primary vendor

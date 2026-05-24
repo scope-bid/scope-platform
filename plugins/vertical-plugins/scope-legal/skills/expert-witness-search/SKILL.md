@@ -1,6 +1,6 @@
 ---
 name: expert-witness-search
-description: Source consulting or testifying expert witnesses. Auto-fires on expert-witness mentions. Daubert-aware - surfaces prior-testimony history and challenge outcomes when known.
+description: Source consulting or testifying expert witnesses. Fires only when the firm is sourcing a new expert for a current matter. Do NOT fire when the user is describing an expert already retained, referencing opposing expert, asking about Daubert rules in the abstract, or reviewing prior testimony from an existing expert. Daubert-aware - surfaces prior-testimony history and challenge outcomes when known.
 type: auto
 triggers:
   - expert witness
