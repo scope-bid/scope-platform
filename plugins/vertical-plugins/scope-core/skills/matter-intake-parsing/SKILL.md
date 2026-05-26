@@ -68,3 +68,39 @@ Then a JSON-shaped object with the fields above, plus a short
 plain-English recap (under 60 words) that the lawyer can confirm or
 correct. If any field is ambiguous, ask one short clarifying
 question. Do not guess.
+
+## Relative dates require clarification
+
+If the user's request contains a relative date phrase WITHOUT also
+naming a specific calendar day or a date window with an explicit end
+date, halt parsing and ask the user for an exact date or date window
+BEFORE calling any dispatch tool. Do NOT default to "earliest
+available slot." Do NOT pick a date on the buyer's behalf. Confirm
+with the user first.
+
+Relative date phrases that trigger this rule include but are not
+limited to:
+
+- "next week", "this week", "the week of..."
+- "tomorrow", "next month", "next quarter"
+- "soon", "ASAP", "as soon as possible"
+- "the end of the month", "early next month"
+- "in a few days", "in the next few weeks"
+
+Absolute date phrases pass through unchanged and proceed to dispatch:
+
+- A specific date ("June 5", "2026-06-05", "the 15th")
+- A weekday paired with a specific date ("Thursday the 12th")
+- A specific date range with both endpoints ("June 5 to June 7")
+
+Bad: user says "I need a court reporter in Dallas for next week" and
+you call `scope_book_deposition` with the next available date. The
+dispatch lands on the wrong day. The buyer has to reschedule.
+
+Good: user says "I need a court reporter in Dallas for next week" and
+you reply "What specific date works? Next week runs Monday the 8th
+through Sunday the 14th. Any date in that range works, or I can hold
+a window if you give me one." Wait for the answer before dispatching.
+
+This rule overrides the general "ask one short clarifying question"
+guidance above. Relative dates ALWAYS get clarified, never guessed.
