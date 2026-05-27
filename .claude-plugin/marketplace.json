@@ -6,10 +6,11 @@
     "icon": "https://scope.bid/brand/scope-logomark-256.png"
   },
   "metadata": {
-    "description": "The vertical-services MCP platform: skills, slash commands, and agents for legal, claims, and AEC vendor dispatch.",
-    "version": "0.1.0",
+    "description": "The vertical-services MCP platform: skills, slash commands, and agents for legal, claims, and AEC vendor dispatch. OAuth 2.0 connect flow for one-click real-account auth; demo mode out of the box.",
+    "version": "0.2.0",
     "homepage": "https://scope.bid",
-    "icon": "https://scope.bid/brand/scope-logomark-256.png"
+    "icon": "https://scope.bid/brand/scope-logomark-256.png",
+    "auth_discovery": "https://scope.bid/.well-known/oauth-authorization-server"
   },
   "plugins": [
     {"name": "scope-core", "source": "./plugins/vertical-plugins/scope-core"},

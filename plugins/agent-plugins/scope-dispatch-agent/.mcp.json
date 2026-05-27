@@ -6,13 +6,31 @@
       "headers": {
         "Authorization": "Bearer scope_pk_demo_2026"
       },
-      "description": "Scope vertical-services MCP for legal-services vendor dispatch. Live. Ships with demo mode enabled. Replace the Authorization header with your production token to switch to real dispatch."
+      "auth": {
+        "type": "oauth2",
+        "authorization_endpoint": "https://scope.bid/api/oauth/authorize",
+        "token_endpoint": "https://scope.bid/api/oauth/token",
+        "revocation_endpoint": "https://scope.bid/api/oauth/revoke",
+        "discovery_url": "https://scope.bid/.well-known/oauth-authorization-server",
+        "scopes_supported": ["mcp"],
+        "code_challenge_methods_supported": ["S256"]
+      },
+      "description": "Scope vertical-services MCP for legal-services vendor dispatch. Live. New installs run in demo mode out of the box (realistic seeded data). For real dispatch, authorize via OAuth at scope.bid/oauth/authorize or paste a personal access token from scope.bid/settings into the Authorization header."
     },
     "scope-claims": {
       "url": "https://scope.bid/api/mcp/claims",
       "transport": "http",
       "headers": {
         "Authorization": "Bearer scope_pk_demo_2026"
+      },
+      "auth": {
+        "type": "oauth2",
+        "authorization_endpoint": "https://scope.bid/api/oauth/authorize",
+        "token_endpoint": "https://scope.bid/api/oauth/token",
+        "revocation_endpoint": "https://scope.bid/api/oauth/revoke",
+        "discovery_url": "https://scope.bid/.well-known/oauth-authorization-server",
+        "scopes_supported": ["mcp"],
+        "code_challenge_methods_supported": ["S256"]
       },
       "description": "Scope vertical-services MCP for insurance claims vendor dispatch. Preview, V2 launches Q3 2026."
     },
@@ -21,6 +39,15 @@
       "transport": "http",
       "headers": {
         "Authorization": "Bearer scope_pk_demo_2026"
+      },
+      "auth": {
+        "type": "oauth2",
+        "authorization_endpoint": "https://scope.bid/api/oauth/authorize",
+        "token_endpoint": "https://scope.bid/api/oauth/token",
+        "revocation_endpoint": "https://scope.bid/api/oauth/revoke",
+        "discovery_url": "https://scope.bid/.well-known/oauth-authorization-server",
+        "scopes_supported": ["mcp"],
+        "code_challenge_methods_supported": ["S256"]
       },
       "description": "Scope vertical-services MCP for AEC subcontractor prequalification. Preview, V3 launches 2027."
     }
