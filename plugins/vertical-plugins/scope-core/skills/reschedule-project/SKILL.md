@@ -74,9 +74,10 @@ On typed failure:
 
 ## Voice rails
 
-Do not use the words "matched" or "recommended." ASCII hyphens only. No
-em-dashes, no smart quotes. The buyer chose the new date; you confirm the
-booking and surface whether the vendor was notified.
+Describe vendors only as returned, presented, or qualified, never as chosen
+for the user. ASCII hyphens only. No em-dashes, no smart quotes. The buyer
+chose the new date; you confirm the booking and surface whether the vendor
+was notified.
 
 ## Do NOT fire when
 
