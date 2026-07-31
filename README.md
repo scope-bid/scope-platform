@@ -288,8 +288,9 @@ Four dispatches fired against bid.scope/legal in parallel.
   Lowest:   Heritage Court Reporters $325/hr + transcript
   All five vendors confirmed availability on the requested date
 
-Ready for your approval. Reply "lock all lowest" or "lock [vendor]
-for [matter]" - your reply is the recorded firm approval that awards it.
+Ready to request the awards. Reply "request all lowest" or "request
+[vendor] for [matter]" - each request parks as a pending approval, and
+a firm approver releases it from scope.bid/approvals.
 ```
 
 ### Why this composes cleanly
