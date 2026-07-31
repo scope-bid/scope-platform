@@ -72,6 +72,9 @@ PATTERNS = [
     ("forbidden word: matching", re.compile(r"\bmatching\b", re.IGNORECASE), "word"),
     ("forbidden word: recommended", re.compile(r"\brecommended\b", re.IGNORECASE), "word"),
     ("forbidden word: recommendation", re.compile(r"\brecommendation\b", re.IGNORECASE), "word"),
+    # "hire" retired 2026-07-15 (Scope.Bid AGENTS.md); "engage" is the verb.
+    # Backtick-wrapped mentions stay legal via is_inside_backticks.
+    ("forbidden word: hire", re.compile(r"\bhir(?:e[sd]?|ing)\b", re.IGNORECASE), "word"),
     ("forbidden phrase: AI conversation", re.compile(r"AI conversation", re.IGNORECASE), "phrase"),
     ("forbidden phrase: 60-120 days", re.compile(r"60-120\s*days?", re.IGNORECASE), "phrase"),
 ]

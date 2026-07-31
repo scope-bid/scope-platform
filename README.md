@@ -14,8 +14,8 @@ The vertical-services MCP platform. Skills, slash commands, and agents
 for legal, claims, and AEC vendor dispatch, installable inside Cowork
 and Claude Code.
 
-Scope is the layer your AI calls when it needs to hire a vendor in a
-regulated industry. The platform packages auto-firing skills (matter
+Scope is the layer your AI calls when it needs to engage a professional
+in a regulated industry. The platform packages auto-firing skills (matter
 intake parsing, vendor dispatch, conflict-check workflow), slash
 commands (`/scope-legal:dispatch`, `/scope-claims:ime`,
 `/scope-aec:prequal`), and an end-to-end dispatch agent that takes a
@@ -24,9 +24,9 @@ Three verticals: legal services live, insurance claims preview in Q3
 2026, AEC subcontractor preview in 2027. The cross-category
 coordination thesis - one matter spans multiple vendor categories that
 require different agencies - is the lead because that is where Scope's
-value actually shows up. ABA Model Rules 5.4 and 7.2 sit underneath
-every skill body and slash command; voice canon is enforced in CI by
-`scripts/lint-voice-canon.py`.
+value actually shows up. Professional-responsibility conventions sit
+underneath every skill body and slash command; voice canon is enforced
+in CI by `scripts/lint-voice-canon.py`.
 
 Who it is built for: mid-market plaintiff PI firms, workers comp
 plaintiff firms, and insurance defense panel firms first; in-house
@@ -254,7 +254,7 @@ client.beta.sessions.events.send(
             "rear-end collision. Plaintiff is Maria Santos, "
             "defendant is Robert Chen. Can you get everything "
             "moving - serve the defendant, pull medical records "
-            "from Sutter Health, schedule an IME, and book a court "
+            "from Capital Valley Medical Center, schedule an IME, and book a court "
             "reporter for the depo on June 15?"
         ),
     }],
@@ -264,8 +264,9 @@ client.beta.sessions.events.send(
 ### What the coordinator returns
 
 A consolidated status card across all four parallel dispatches.
-Sketch (exact rendering depends on whether the host surface honors
-Scope's `display_widget` HTML):
+Sketch with sample data - every name is coined and nothing below is a
+real dispatch (exact rendering depends on whether the host surface
+honors Scope's `display_widget` HTML):
 
 ```
 Four dispatches fired against bid.scope/legal in parallel.
@@ -276,7 +277,7 @@ Four dispatches fired against bid.scope/legal in parallel.
 
 [Records retrieval]  matter SC-3105    4 quotes returned
   Lowest:   Beacon Records Network   $325 + $0.10/page
-  HIPAA-compliant, Sutter integration confirmed across all four
+  HIPAA-compliant custodian handling confirmed across all four
 
 [IME (orthopedic)]   matter SC-3106    5 quotes returned
   Lowest:   Citadel IME Network      $1,950 / 90-min exam
@@ -287,8 +288,8 @@ Four dispatches fired against bid.scope/legal in parallel.
   Lowest:   Heritage Court Reporters $325/hr + transcript
   All five vendors confirmed availability on the requested date
 
-Ready to award. Reply "lock all lowest", "lock [vendor] for [matter]",
-or "push for a better rate on [matter]" to proceed.
+Ready for your approval. Reply "lock all lowest" or "lock [vendor]
+for [matter]" - your reply is the recorded firm approval that awards it.
 ```
 
 ### Why this composes cleanly
