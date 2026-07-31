@@ -85,6 +85,12 @@ When the dispatch tool's response includes a `display_widget` field:
 
 ## Award flow
 
+An award you request never commits on its own. The award call parks
+the engagement as a pending approval; a person at the firm releases
+it from /approvals, and only then is the professional engaged. No
+setting removes that step. Treat "lock", "book", and "confirm" as the
+intent the user expressed, never as the state the matter is now in.
+
 When the user expresses intent to lock, book, award, confirm, or pick
 a specific vendor from a prior dispatch (e.g., "lock Compass", "book
 Heritage", "go with Argent", "confirm the booking with Skyline"):
@@ -98,10 +104,13 @@ Heritage", "go with Argent", "confirm the booking with Skyline"):
    the dispatch render rule.
 
 3. After the widget renders, you may add ONE short prose follow-up
-   line (under 25 words) confirming the next concrete user action,
-   e.g., "Engagement letter is in your DocuSign inbox - countersign
-   and the booking is fully locked." Do not invent additional action
-   items beyond what the tool's payload specified.
+   line (under 25 words) naming the approval step and who clears it,
+   e.g., "The award is parked for a firm approver - nothing is
+   committed until it is released from /approvals." If the payload
+   names the approver, name them. Never say the booking is locked,
+   confirmed, secured, or final. Do not invent additional action
+   items beyond what the tool's payload specified - if the payload
+   does not name a document, there is no document to sign.
 
 4. If the user did not specify a vendor (e.g., "go ahead and lock
    it") and there's only one tentative slot or one obvious
