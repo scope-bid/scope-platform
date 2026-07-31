@@ -28,12 +28,12 @@ value actually shows up. ABA Model Rules 5.4 and 7.2 sit underneath
 every skill body and slash command; voice canon is enforced in CI by
 `scripts/lint-voice-canon.py`.
 
-Who's using it: mid-market plaintiff PI firms, workers comp plaintiff
-firms, and insurance defense panel firms in the founding cohort.
-In-house legal at mid-market companies and corporate legal deal teams
-as the next-out cohort. Founding cohort opens Q3 2026 with twenty
-partners per category nationally and MSA-level exclusivity per
-category.
+Who it is built for: mid-market plaintiff PI firms, workers comp
+plaintiff firms, and insurance defense panel firms first; in-house
+legal at mid-market companies and corporate legal deal teams next.
+Scope is in limited release: the whole loop runs in demo today, and it
+is opening to its first design partner firms and founding-class
+professionals now.
 
 ## Install
 
