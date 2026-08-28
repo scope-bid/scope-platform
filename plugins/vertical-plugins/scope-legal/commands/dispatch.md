@@ -6,8 +6,9 @@ description: Dispatch a matter to vendors and return live quotes.
 When the user runs `/dispatch [matter description]`, route through the
 vendor-dispatch skill from scope-core. If matter intake has not yet
 parsed the matter, fire matter-intake-parsing first; then dispatch,
-naming every party verbatim - the server-side conflict gate filters
-professionals with declared relationships to the named parties.
+naming every party verbatim - on `scope_dispatch_matter`, the
+server-side conflict gate excludes professionals with declared
+relationships to the named parties.
 
 The user can pass a free-text matter description after the slash
 command. If they pass nothing, ask for the matter description in one

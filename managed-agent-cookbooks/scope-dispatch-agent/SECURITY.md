@@ -18,10 +18,10 @@ emits `handoff_commit` back to resume the loop.
 - Modify the firm's roster (promote primary, demote to backup,
   exclude). The human commits each change.
 - Work around the dispatch-time conflict gate. The gate runs
-  server-side inside the dispatch, filtering vendors with declared
-  relationships to the matter's named parties; the agent never
-  attempts to clear it, override it, or steer an award toward a
-  vendor it excluded.
+  server-side on `scope_dispatch_matter` dispatches, excluding
+  vendors with declared relationships to the matter's named parties;
+  the agent never attempts to clear it, override it, or steer an
+  award toward a vendor it excluded.
 - Send any external communication (email a vendor, dispatch a
   records authorization, file a subpoena). The agent stages the
   draft; the human sends.
