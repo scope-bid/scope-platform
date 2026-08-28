@@ -50,7 +50,9 @@ flat-fee production).
 
 ## Dispatch flow
 
-1. Run conflict-check on the matter parties.
+1. Name the matter parties verbatim in the dispatch; the server-side
+   conflict gate filters professionals with declared relationships
+   to them.
 2. Call `scope_dispatch_matter` with the collected fields, scoped to
    the e-discovery category.
 3. Quotes return from hosting platforms and review vendors that cover

@@ -17,10 +17,10 @@ emits `handoff_commit` back to resume the loop.
   the booking, including date, location, and any logistics riders.
 - Modify the firm's roster (promote primary, demote to backup,
   exclude). The human commits each change.
-- Override a conflict-check hit. Conflict-check overrides require an
-  informed-consent workflow that lives outside this agent. The
-  agent halts on a conflict hit; the runtime routes the override
-  workflow to the firm's ethics or general counsel.
+- Bypass the dispatch-time conflict gate. The gate runs server-side
+  inside the dispatch, filtering vendors with declared relationships
+  to the matter's named parties; the agent cannot clear or override
+  it.
 - Send any external communication (email a vendor, dispatch a
   records authorization, file a subpoena). The agent stages the
   draft; the human sends.
@@ -29,7 +29,6 @@ emits `handoff_commit` back to resume the loop.
 
 - Read the matter description.
 - Parse it into structured fields.
-- Query the conflict database (read only).
 - Call MCP dispatch tools in dry-run mode (commit=false) to surface
   available quotes.
 - Format quotes side by side.
@@ -37,7 +36,7 @@ emits `handoff_commit` back to resume the loop.
 
 The agent never moves money, never confirms an award, never sends an
 external email or calendar invite, never modifies a roster, never
-overrides a conflict.
+works around the dispatch-time conflict gate.
 
 ## ABA Model Rule alignment
 
@@ -59,7 +58,7 @@ Every steering event the orchestrator emits is logged with:
 - Agent version (from `plugin.json`)
 - Subagent that produced the staged result
 - The matter ID or claim file ID
-- The full payload (parsed matter, conflict check, quotes)
+- The full payload (parsed matter, conflict gate result, quotes)
 - The human action taken (commit, revise, abandon)
 - The committing user's identity (from the runtime's auth)
 

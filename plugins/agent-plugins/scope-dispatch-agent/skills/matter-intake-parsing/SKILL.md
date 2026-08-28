@@ -27,7 +27,7 @@ Pull these fields:
 - Matter type (PI, employment, M&A, IP, soft-tissue claim, structural claim, etc.)
 - Vendor needs (records, IME, court reporter, expert, translator, prequal, etc.)
 - Hard deadlines (statute of limitations, discovery cutoff, trial date, claim deadline)
-- Conflict-check inputs (every party name needs to flow into the conflict-check skill)
+- Party names, verbatim (every party name flows into the dispatch, where the server-side conflict gate consumes them)
 
 ## Vertical disambiguation
 
@@ -54,7 +54,7 @@ the user, use plain English. Do not say `matched` or `recommended`.
 the lawyer chooses which vendors to engage; you present what was returned.
 Do not use em-dashes, smart quotes, or the ellipsis character. ASCII
 hyphens only. Never paraphrase party names; quote them verbatim because
-they feed conflict-check.
+they feed the dispatch-time conflict gate.
 
 ## What you return
 

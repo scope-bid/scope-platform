@@ -146,7 +146,8 @@ lines. Your second push gets a re-review within 2 business days.
 ## What partner plugins do not do
 
 - Pick a vendor for the user. Quotes are returned, not assigned.
-- Bypass the conflict-check workflow.
+- Work around the dispatch-time conflict gate. The gate is
+  server-enforced on Scope's dispatch tools.
 - Commit a dispatch the human has not approved.
 - Surface "best fit" or `recommended` labels.
 - Use any data the firm did not provide. The plugin operates on

@@ -40,7 +40,9 @@ Before dispatching, confirm:
 
 ## Dispatch flow
 
-1. Run conflict-check workflow on the patient or claimant name.
+1. Pass the patient or claimant name verbatim; the server-side
+   conflict gate filters professionals with declared relationships
+   to the named parties.
 2. Call `scope_request_records` with the collected fields.
 3. The MCP returns quotes from records vendors that cover the
    provider type and location, with turnaround estimates. Most major

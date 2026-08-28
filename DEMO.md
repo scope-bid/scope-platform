@@ -16,8 +16,7 @@ accepted and return plausible matter IDs, but no data is persisted.
 
 When you're ready, swap the demo token for a real one (issued at
 `scope.bid/settings` after signup) and the same plugin starts running
-real dispatches against your firm's actual roster, conflicts, and
-matter file.
+real dispatches against your firm's actual roster and matter file.
 
 ## Install (Cowork or Claude Code)
 
@@ -132,8 +131,8 @@ with your token:
 ```
 
 The same plugin and same skills now run real dispatches against your
-firm's actual matters, vendors, conflicts, and roster. The voice
-canon and ABA rails apply identically.
+firm's actual matters, vendors, and roster. The voice canon and ABA
+rails apply identically.
 
 ## What to do when something looks off
 

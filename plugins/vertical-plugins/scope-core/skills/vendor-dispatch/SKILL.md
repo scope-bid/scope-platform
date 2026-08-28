@@ -131,8 +131,11 @@ waitlist responses for some categories - if so, surface that plainly.
 
 ## Dispatch flow
 
-1. Confirm the conflict check has run (the conflict-check-workflow
-   skill handles this; if it has not, halt and ask).
+1. Collect the matter's adverse parties and include them in the
+   dispatch. Scope's server runs the dispatch-time conflict gate
+   automatically: professionals with declared relationships to the
+   named parties are filtered before the dispatch reaches them, and
+   the result is recorded on the matter.
 2. Confirm the user's intended dispatch mode: open marketplace,
    roster-first, or roster-only. If the firm has a configured roster
    and the user did not specify, default to `roster_first`.

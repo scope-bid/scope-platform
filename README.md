@@ -16,7 +16,7 @@ and Claude Code.
 
 Scope is the layer your AI calls when it needs to engage a professional
 in a regulated industry. The platform packages auto-firing skills (matter
-intake parsing, vendor dispatch, conflict-check workflow), slash
+intake parsing, vendor dispatch, quote comparison), slash
 commands (`/scope-legal:dispatch`, `/scope-claims:ime`,
 `/scope-aec:prequal`), and an end-to-end dispatch agent that takes a
 matter description and stages vendor quotes for the lawyer's review.

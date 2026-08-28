@@ -15,10 +15,11 @@
       "claimant": "Maria Henderson",
       "date_range": "2019-2024"
     },
-    "conflict_check": {
-      "status": "clear",
-      "checked_at": "2026-05-08T17:24:11Z",
-      "parties_checked": ["Henderson, Maria", "Acme Logistics, Inc."]
+    "conflict_gate": {
+      "_comment": "The dispatch-time conflict gate runs server-side inside the dispatch: vendors with declared relationships to the named parties are filtered before the dispatch reaches them.",
+      "ran_at": "2026-05-08T17:24:11Z",
+      "parties_named": ["Henderson, Maria", "Acme Logistics, Inc."],
+      "vendors_filtered": 0
     },
     "quotes": [
       {

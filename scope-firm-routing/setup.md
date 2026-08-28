@@ -109,7 +109,3 @@ Two places log the agent's traffic:
 - The agent reports an MCP-tool failure. The MCP servers run on
   Scope's infrastructure, not yours. Confirm Scope's status page
   shows the legal MCP as live.
-- The agent halts on every conflict check. Either the firm's
-  conflict database returns false positives, or the agent's
-  conflict-checker subagent is misrouted. Re-run validation with
-  a known-clear matter.

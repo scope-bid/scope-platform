@@ -12,5 +12,6 @@ V2 launches Q3 2026. Until then, the command surfaces the carrier's
 waitlist position via `scope_claims_status` and offers to register
 the carrier via `scope_claims_join_waitlist` if not yet on the list.
 
-Run conflict-check on the claimant before any dispatch. Pass quotes
-to quote-comparison.
+Pass the claimant's name verbatim in any dispatch; the server-side
+conflict gate filters professionals with declared relationships to
+named parties. Pass quotes to quote-comparison.

@@ -29,8 +29,9 @@ adds new ones as demand surfaces.
 - Subject area (M&A, regulatory, litigation, IP, employment, tax)
 - Engagement type (one-time advice, ongoing matter counsel, full
   representation, opinion letter)
-- Conflict-check inputs (every party of record, including the deal
-  counterparties for transactional matters)
+- Party names for the dispatch-time conflict gate (every party of
+  record, including the deal counterparties for transactional
+  matters)
 - Language (English typically default; specify if the firm needs
   another working language)
 - Timezone constraints if any
