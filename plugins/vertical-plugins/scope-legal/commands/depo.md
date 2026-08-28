@@ -14,7 +14,6 @@ If the user passes a single line like `/depo Smith dep, Bakersfield,
 Tuesday, video, Spanish interpreter`, parse the fields from natural
 language. If anything required is missing, ask once.
 
-Pass the deponent and every party of record verbatim; the server-side
-conflict gate filters professionals with declared relationships to the
-named parties. Then call `scope_book_deposition`. Pass quotes to
+Collect the deponent and every party of record verbatim for the
+matter record. Then call `scope_book_deposition`. Pass quotes to
 quote-comparison.

@@ -58,9 +58,9 @@ seeded responses immediately - no signup required.
 +----------------------------------------+
 |  Layer 2: Skills + slash commands      |
 |  scope-core (5 shared skills)          |
-|  scope-legal (5 skills + 7 commands)   |
+|  scope-legal (5 skills + 6 commands)   |
 |  scope-claims (5 skills + 4 commands)  |
-|  scope-aec (4 skills + 3 commands)     |
+|  scope-aec (5 skills + 4 commands)     |
 +----------------------------------------+
 |  Layer 1: MCP servers                  |
 |  scope-legal (live)                    |

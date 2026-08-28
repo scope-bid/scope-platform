@@ -17,10 +17,11 @@ emits `handoff_commit` back to resume the loop.
   the booking, including date, location, and any logistics riders.
 - Modify the firm's roster (promote primary, demote to backup,
   exclude). The human commits each change.
-- Bypass the dispatch-time conflict gate. The gate runs server-side
-  inside the dispatch, filtering vendors with declared relationships
-  to the matter's named parties; the agent cannot clear or override
-  it.
+- Work around the dispatch-time conflict gate. The gate runs
+  server-side inside the dispatch, filtering vendors with declared
+  relationships to the matter's named parties; the agent never
+  attempts to clear it, override it, or steer an award toward a
+  vendor it excluded.
 - Send any external communication (email a vendor, dispatch a
   records authorization, file a subpoena). The agent stages the
   draft; the human sends.

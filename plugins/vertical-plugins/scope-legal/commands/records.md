@@ -14,7 +14,5 @@ If the user passes a line like `/records Mt. Sinai chart, Smith,
 2019-2024`, parse the fields. If anything required is missing, ask
 once.
 
-Pass the patient or claimant name verbatim; the server-side conflict
-gate filters professionals with declared relationships to the named
-parties. Then call `scope_request_records`. Pass quotes to
-quote-comparison.
+Collect the patient or claimant name verbatim for the matter record.
+Then call `scope_request_records`. Pass quotes to quote-comparison.
