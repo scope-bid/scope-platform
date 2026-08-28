@@ -147,7 +147,7 @@ lines. Your second push gets a re-review within 2 business days.
 
 - Pick a vendor for the user. Quotes are returned, not assigned.
 - Work around the dispatch-time conflict gate. The gate is
-  server-enforced on Scope's dispatch tools.
+  server-enforced on `scope_dispatch_matter` dispatches.
 - Commit a dispatch the human has not approved.
 - Surface "best fit" or `recommended` labels.
 - Use any data the firm did not provide. The plugin operates on

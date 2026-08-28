@@ -106,10 +106,11 @@ intake.
 1. Parse the matter description into structured fields (parties,
    jurisdiction, vendor needs, deadlines).
 2. Confirm the right vertical (legal, claims, AEC).
-3. Name every party in the dispatch. Scope's server runs the
-   dispatch-time conflict gate automatically: vendors with declared
-   relationships to the named parties are filtered before the
-   dispatch reaches them, and the result is recorded on the matter.
+3. Name every party in the dispatch, verbatim. On
+   `scope_dispatch_matter`, Scope's server runs the dispatch-time
+   conflict gate: vendors with declared relationships to the named
+   parties are excluded from the dispatch, and each exclusion is
+   recorded on the matter trail.
 4. Dispatch to the right vendor categories via the MCP servers.
 5. Format the returned quotes side by side.
 6. Stage the result for the human's review. The human commits the
