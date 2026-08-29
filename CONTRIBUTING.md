@@ -62,6 +62,7 @@ it. Without this, `check.py` will flag drift on the next lint run.
 - Slash command behavior (does the command's body match the
   skill's behavior?).
 - ABA-rails respect (no `matched`, no `recommended`, no judgment
-  labels on vendors, no bypassing of conflict-check).
+  labels on vendors, no working around the dispatch-time conflict
+  gate).
 - Security model for partner plugins (auth, rate limit, the
   partner's stated coverage).

@@ -26,7 +26,6 @@ mcp:
 
 subagents:
   - matter-parser
-  - conflict-checker
   - vendor-dispatcher
   - quote-formatter
 
@@ -34,7 +33,6 @@ human_gates:
   - dispatch_award
   - calendar_booking
   - roster_modification
-  - conflict_check_override
 
 output:
   staging: true

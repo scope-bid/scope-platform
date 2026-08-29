@@ -27,7 +27,7 @@ Pull these fields:
 - Matter type (PI, employment, M&A, IP, soft-tissue claim, structural claim, etc.)
 - Vendor needs (records, IME, court reporter, expert, translator, prequal, etc.)
 - Hard deadlines (statute of limitations, discovery cutoff, trial date, claim deadline)
-- Conflict-check inputs (every party name needs to flow into the conflict-check skill)
+- Party names, verbatim (exact names flow into the matter record; on `scope_dispatch_matter` dispatches the conflict gate consumes them)
 
 ## Vertical disambiguation
 
@@ -53,8 +53,9 @@ Return structured fields, not prose. When you echo the matter back to
 the user, use plain English. Do not say `matched` or `recommended`.
 the lawyer chooses which vendors to engage; you present what was returned.
 Do not use em-dashes, smart quotes, or the ellipsis character. ASCII
-hyphens only. Never paraphrase party names; quote them verbatim because
-they feed conflict-check.
+hyphens only. Never paraphrase party names; quote them verbatim - they
+land on the matter record exactly as given, and on
+`scope_dispatch_matter` dispatches the conflict gate consumes them.
 
 ## What you return
 

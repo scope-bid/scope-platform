@@ -127,8 +127,8 @@ Heritage", "go with Argent", "confirm the booking with Skyline"):
 1. Pull deposition details from the matter intake: deponent name,
    date, jurisdiction, language requirements, video required yes or no,
    estimated duration in hours.
-2. Run the conflict check against the deponent and any party of
-   record. Halt if a conflict surfaces.
+2. Record the deponent and every party of record verbatim on the
+   matter.
 3. Call `scope_book_deposition` with the bundled fields. The MCP
    returns quotes from agencies that can cover the full bundle on the
    requested date.

@@ -40,7 +40,7 @@ Before dispatching, confirm:
 
 ## Dispatch flow
 
-1. Run conflict-check workflow on the patient or claimant name.
+1. Record the patient or claimant name verbatim on the matter.
 2. Call `scope_request_records` with the collected fields.
 3. The MCP returns quotes from records vendors that cover the
    provider type and location, with turnaround estimates. Most major

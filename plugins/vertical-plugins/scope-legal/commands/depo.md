@@ -14,5 +14,6 @@ If the user passes a single line like `/depo Smith dep, Bakersfield,
 Tuesday, video, Spanish interpreter`, parse the fields from natural
 language. If anything required is missing, ask once.
 
-Run conflict check on the deponent. Then call `scope_book_deposition`.
-Pass quotes to quote-comparison.
+Collect the deponent and every party of record verbatim for the
+matter record. Then call `scope_book_deposition`. Pass quotes to
+quote-comparison.

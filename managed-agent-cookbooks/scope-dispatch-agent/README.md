@@ -9,11 +9,10 @@ steering events for headless use.
 
 ## What this is
 
-A four-subagent orchestrator that takes a matter description and
+A three-subagent orchestrator that takes a matter description and
 stages vendor quotes for the human's review:
 
 - `matter-parser` parses the free-text matter into structured fields.
-- `conflict-checker` runs the conflict check.
 - `vendor-dispatcher` calls the right MCP server.
 - `quote-formatter` renders the side-by-side view.
 
@@ -31,8 +30,8 @@ You use the managed-agent runtime when:
   agent via API and renders the staged result inside its own
   interface.
 - You want the orchestrator to handle long-running matters that span
-  hours or days (parsing now, conflict-check now, dispatch later
-  after the lawyer reviews).
+  hours or days (parsing now, dispatch later after the lawyer
+  reviews).
 
 You use the Cowork plugin path instead when the lawyer or claims VP
 is interacting with Claude directly (Claude Code, Claude.ai, Cowork

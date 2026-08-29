@@ -24,8 +24,8 @@ right specialty, in the claimant's MSA, with a HIPAA BAA on file.
 ## What you collect
 
 - Claim file ID
-- Claimant name (for the conflict-check workflow and for the
-  examiner's intake)
+- Claimant name (verbatim, for the claim record and the examiner's
+  intake)
 - Specialty (ortho, neuro, internal med, psychiatry, occupational,
   pain management)
 - Body part or injury type
@@ -44,7 +44,7 @@ plainly and offer to register the carrier if not yet on the list.
 
 When V2 ships, the dispatch flow will be:
 
-1. Run conflict-check on the claimant.
+1. Pass the claimant's name verbatim.
 2. Call the V2 IME dispatch tool with the collected fields.
 3. Quotes return from panel-cleared examiners with named providers,
    dates, rates, and BAA status.

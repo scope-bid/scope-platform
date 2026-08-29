@@ -16,8 +16,8 @@ version: "1"
 name: scope-dispatch-agent
 description: >-
   Scope vertical-services dispatch agent. Takes a matter description,
-  parses it, runs conflict check, dispatches to the right vendors
-  across legal, claims, and AEC. Stages quotes for the human's review.
+  parses it, dispatches to the right vendors across legal, claims,
+  and AEC. Stages quotes for the human's review.
 
 orchestrator:
   model: claude-sonnet-4-5
@@ -30,7 +30,6 @@ mcp:
 
 subagents:
   - matter-parser
-  - conflict-checker
   - vendor-dispatcher
   - quote-formatter
 
@@ -41,7 +40,6 @@ human_gates:
   - dispatch_award
   - calendar_booking
   - roster_modification
-  - conflict_check_override
 
 # Output staging. Every result the orchestrator returns is staged
 # (not committed) until the human commits via the runtime's commit

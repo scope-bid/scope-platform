@@ -15,11 +15,6 @@
       "claimant": "Maria Henderson",
       "date_range": "2019-2024"
     },
-    "conflict_check": {
-      "status": "clear",
-      "checked_at": "2026-05-08T17:24:11Z",
-      "parties_checked": ["Henderson, Maria", "Acme Logistics, Inc."]
-    },
     "quotes": [
       {
         "vendor": "RecordPath",

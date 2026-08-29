@@ -23,7 +23,7 @@ plus interpreter on the same rate card).
 
 ## What you collect
 
-- Deponent name (verbatim, for the conflict-check workflow)
+- Deponent name (verbatim)
 - Date or date window
 - Jurisdiction (city plus state)
 - Language requirements (English default; specify if interpreter is
@@ -36,12 +36,11 @@ plus interpreter on the same rate card).
 1. Confirm the firm has Verident on the roster for the deposition
    category. If not, halt and let the user know Verident is not on
    their roster.
-2. Confirm the conflict check has run on the deponent.
-3. Call `verident__check_availability` with the date and
+2. Call `verident__check_availability` with the date and
    jurisdiction.
-4. If a reporter is available, call `verident__quote_deposition`
+3. If a reporter is available, call `verident__quote_deposition`
    with the bundle fields and return the quote.
-5. Pass the quote to the scope-core quote-comparison skill so the
+4. Pass the quote to the scope-core quote-comparison skill so the
    user sees Verident's quote alongside other vendors if they
    dispatched to multiple agencies.
 

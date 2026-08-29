@@ -17,7 +17,7 @@ What this does NOT do:
     Anthropic's; this script is a local development harness for
     walking through the event flow without spinning up the API.
   - Persist state. Every run starts fresh. Production runtime
-    persists matter context, conflict-check results, and quote
+    persists matter context, conflict-gate results, and quote
     arrays in the firm's matter-management database.
   - Execute MCP calls. The real runtime has the MCP servers wired;
     this stub just logs the call signature it would have made.
@@ -58,8 +58,6 @@ def route_event(event: dict[str, Any]) -> dict[str, Any]:
     et = event.get("event_type")
     if et == "matter_intake":
         return dispatch_to_subagent("matter-parser", event)
-    if et == "conflict_check":
-        return dispatch_to_subagent("conflict-checker", event)
     if et == "vendor_dispatch":
         return dispatch_to_subagent("vendor-dispatcher", event)
     if et == "format_quotes":
