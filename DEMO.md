@@ -52,8 +52,9 @@ name.
   service notes.
 
 - `Dispatch records retrieval for a workers comp claim in Florida, deadline 2 weeks.`
-  Expected: a new matter ID gets generated and the response reports
-  how many professionals were notified. The response carries
+  Expected: a new matter ID gets generated and quotes come back. In
+  demo mode no professional is notified and no approval is
+  requested. The response carries
   `demo_mode: true` in the body and an `X-Scope-Demo-Mode: true` HTTP
   header. Nothing is saved to a firm's data.
 

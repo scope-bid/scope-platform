@@ -17,7 +17,7 @@
     },
     "quotes": [
       {
-        "vendor": "RecordPath",
+        "vendor": "RecordPath (example)",
         "tier": "primary",
         "rate": "$850 fixed plus $0.10 per page over 500 pages",
         "availability": "7-10 days standard",
@@ -26,7 +26,7 @@
         "flags": []
       },
       {
-        "vendor": "Apex Records LLC",
+        "vendor": "Apex Records LLC (example)",
         "tier": "backup",
         "rate": "$725 fixed plus $0.12 per page over 500 pages",
         "availability": "14 days standard",
@@ -35,7 +35,7 @@
         "flags": []
       },
       {
-        "vendor": "Continental Records Group",
+        "vendor": "Continental Records Group (example)",
         "tier": "marketplace",
         "rate": "$1,100 fixed",
         "availability": "5 days expedite",
@@ -45,5 +45,5 @@
       }
     ]
   },
-  "human_action_required": "Pick the awarded vendor, or revise the request, or abandon."
+  "human_action_required": "Pick the professional to award, or revise the request, or abandon."
 }

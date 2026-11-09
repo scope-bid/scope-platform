@@ -258,28 +258,24 @@ real dispatch (exact rendering depends on whether the host surface
 honors Scope's `display_widget` HTML):
 
 ```
-Four dispatches fired against bid.scope/legal in parallel.
+Four dispatches sent to bid.scope/legal in parallel.
 
-[Process server]    matter SC-EXAMPLE-1    5 quotes returned
+[Process server]     matter SC-EXAMPLE-1    quotes returned
   Lowest:   Example Process Service (example)    $185 flat
-  Fastest:  Sample Serve Co. (example)           24-hour rush available
 
-[Records retrieval]  matter SC-EXAMPLE-2    4 quotes returned
+[Records retrieval]  matter SC-EXAMPLE-2    quotes returned
   Lowest:   Sample Records Retrieval (example)   $325 + $0.10/page
-  HIPAA-compliant custodian handling confirmed across all four
 
-[IME (orthopedic)]   matter SC-EXAMPLE-3    5 quotes returned
+[IME (orthopedic)]   matter SC-EXAMPLE-3    quotes returned
   Lowest:   Example IME Group (example)          $1,950 / 90-min exam
-  Earliest available: 2026-06-09, Sample IME Practice (example)
 
-[Court reporter, deposition 2026-06-15]
-                     matter SC-EXAMPLE-4    5 quotes returned
+[Court reporter]     matter SC-EXAMPLE-4    quotes returned
   Lowest:   Sample Court Reporting (example)     $325/hr + transcript
-  All five professionals confirmed availability on the requested date
 
 Ready to request the awards. Reply "request all lowest" or "request
-[professional] for [matter]" - each request parks as a pending
-approval, and a firm approver releases it from scope.bid/approvals.
+[professional] for [matter]". Each request waits for a firm approver
+at scope.bid/approvals, unless a firm admin approved that spending in
+advance within set limits.
 ```
 
 ### Why this composes cleanly
