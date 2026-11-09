@@ -55,8 +55,12 @@ name.
   Expected: the server first asks for the details a records request
   needs (whose records, the provider and its location, the record
   types, the date range). Once those are answered, a new matter ID
-  comes back with quotes, parked as a pending approval for a firm
-  approver, so nothing is committed. The response carries
+  comes back with quotes. On a quotes-only call (`award=quote_only`,
+  which the tool's description asks for until the user picks a
+  professional) nothing is
+  sent and no approval is requested. If the call asks Scope to award,
+  the dispatch is parked as a pending approval for a firm approver.
+  Either way nothing is committed. The response carries
   `demo_mode: true` in the body and an `X-Scope-Demo-Mode: true` HTTP
   header. Nothing is saved to a firm's data.
 
