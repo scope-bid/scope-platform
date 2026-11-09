@@ -157,9 +157,8 @@ Reporting", "go with Argent", "confirm the booking with Skyline"):
 
 If the user explicitly asks for separate vendors (sometimes a firm
 prefers a specific videographer or a specialty interpreter for a
-technical witness), call `scope_dispatch_matter` per category with
-`award='quote_only'` and let the quotes come back from different
-agencies. Surface the
+technical witness), call `scope_dispatch_matter` per category and
+let the quotes come back from different agencies. Surface the
 trade-off plainly: bundling typically simplifies invoicing and on-day
 coordination; unbundling typically gives the firm a specialist where
 needed but means three invoices and three points of contact.

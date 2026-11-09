@@ -162,11 +162,9 @@ waitlist responses for some categories - if so, surface that plainly.
    Example: "Dispatching through Scope to scope-legal in roster-first
    mode..." or "Dispatching through Scope to scope-claims..." The
    line confirms which vertical and mode the request is going to.
-4. Call `scope_dispatch_matter` with the parsed matter fields, the
-   dispatch mode, and `award='quote_only': quotes come back, Scope chooses no one, nobody is asked to
-   approve anything, and no professional is contacted. Leave `award`
-   at its default only when the user asks Scope to choose and send a
-   professional.
+4. Call `scope_dispatch_matter` (or the category-specific tool like
+   `scope_book_deposition`, `scope_request_records`) with the parsed
+   matter fields and the dispatch mode.
 5. Wait for quotes to return. The MCP tool streams a list of named
    vendors, not blind matches.
 6. Pass the result to the quote-comparison skill for formatting.
