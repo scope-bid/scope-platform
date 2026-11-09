@@ -143,7 +143,7 @@ SCOPE_MCP = {
     "authorization_token": "scope_pk_demo_2026",
 }
 
-# Four specialist sub-agents, one per vendor category. Each one's
+# Four specialist sub-agents, one per service category. Each one's
 # only job is to invoke scope_dispatch_matter (or scope_book_deposition)
 # for its category and return the structured quote payload verbatim.
 service_agent = client.beta.agents.create(
@@ -154,7 +154,7 @@ service_agent = client.beta.agents.create(
         "Given a defendant name, service address, and jurisdiction, "
         "call scope_dispatch_matter with vendor_type='process_server' "
         "and return the structured quote payload verbatim. Do not "
-        "summarize. Do not pick a vendor."
+        "summarize. Do not pick a professional."
     ),
     mcp_servers=[SCOPE_MCP],
 )
@@ -168,7 +168,7 @@ records_agent = client.beta.agents.create(
         "range, call scope_dispatch_matter with "
         "vendor_type='records_retrieval' and return the structured "
         "quote payload verbatim. Do not summarize. Do not pick a "
-        "vendor."
+        "professional."
     ),
     mcp_servers=[SCOPE_MCP],
 )
@@ -193,7 +193,8 @@ depo_agent = client.beta.agents.create(
         "You dispatch court-reporter bookings to bid.scope/legal. "
         "Given a deposition date and jurisdiction, call "
         "scope_book_deposition and return the structured quote "
-        "payload verbatim. Do not summarize. Do not pick a vendor."
+        "payload verbatim. Do not summarize. Do not pick a "
+        "professional."
     ),
     mcp_servers=[SCOPE_MCP],
 )
@@ -206,12 +207,12 @@ coordinator = client.beta.agents.create(
     system=(
         "You handle new personal-injury matter intake for a "
         "plaintiff firm. When the user names a new case, parse the "
-        "four standard vendor needs (service, records, IME, court "
+        "four standard needs (service, records, IME, court "
         "reporter) from their message and delegate each to the "
-        "matching specialist agent. The four specialists run in "
+        "relevant specialist agent. The four specialists run in "
         "parallel. When all four return, consolidate their quote "
         "payloads into a single status card with one line per "
-        "vendor category. Surface the lowest-total quote and the "
+        "service category. Surface the lowest-total quote and the "
         "fastest-availability quote per category as factual flags, "
         "never as a pick. The lawyer awards; you present."
     ),
@@ -242,8 +243,8 @@ client.beta.sessions.events.send(
             "rear-end collision. Plaintiff is Maria Santos, "
             "defendant is Robert Chen. Can you get everything "
             "moving - serve the defendant, pull medical records "
-            "from Capital Valley Medical Center, schedule an IME, and book a court "
-            "reporter for the depo on June 15?"
+            "from Sample Medical Center (example), schedule an IME, "
+            "and book a court reporter for the depo on June 15?"
         ),
     }],
 )
@@ -260,25 +261,25 @@ honors Scope's `display_widget` HTML):
 Four dispatches fired against bid.scope/legal in parallel.
 
 [Process server]    matter SC-EXAMPLE-1    5 quotes returned
-  Lowest:   SacServe & Process Co.   $185 flat
-  Fastest:  Capital City Process     24-hour rush available
+  Lowest:   Example Process Service (example)    $185 flat
+  Fastest:  Sample Serve Co. (example)           24-hour rush available
 
 [Records retrieval]  matter SC-EXAMPLE-2    4 quotes returned
-  Lowest:   Beacon Records Network   $325 + $0.10/page
+  Lowest:   Sample Records Retrieval (example)   $325 + $0.10/page
   HIPAA-compliant custodian handling confirmed across all four
 
 [IME (orthopedic)]   matter SC-EXAMPLE-3    5 quotes returned
-  Lowest:   Citadel IME Network      $1,950 / 90-min exam
-  Earliest available: 2026-06-09 (Cornerstone IME Network)
+  Lowest:   Example IME Group (example)          $1,950 / 90-min exam
+  Earliest available: 2026-06-09, Sample IME Practice (example)
 
 [Court reporter, deposition 2026-06-15]
                      matter SC-EXAMPLE-4    5 quotes returned
-  Lowest:   Heritage Court Reporters $325/hr + transcript
-  All five vendors confirmed availability on the requested date
+  Lowest:   Sample Court Reporting (example)     $325/hr + transcript
+  All five professionals confirmed availability on the requested date
 
 Ready to request the awards. Reply "request all lowest" or "request
-[vendor] for [matter]" - each request parks as a pending approval, and
-a firm approver releases it from scope.bid/approvals.
+[professional] for [matter]" - each request parks as a pending
+approval, and a firm approver releases it from scope.bid/approvals.
 ```
 
 ### Why this composes cleanly

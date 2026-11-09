@@ -2,8 +2,8 @@
 
 Scope drafts; the human commits. Every action this agent takes that
 affects the firm, the claim file, the matter file, the calendar, or
-the vendor relationship is gated on a human commit event from the
-runtime.
+the relationship with a professional is gated on a human commit event
+from the runtime.
 
 ## What the agent NEVER does without human commit
 
@@ -12,17 +12,19 @@ for every one of these. The runtime forwards the event to the firm's
 review UI; the human approves, revises, or abandons; the runtime
 emits `handoff_commit` back to resume the loop.
 
-- Award a vendor quote. The lawyer or claims VP picks the vendor.
-- Book a calendar slot with the awarded vendor. The human approves
-  the booking, including date, location, and any logistics riders.
+- Award a professional's quote. The lawyer or claims VP picks the
+  professional.
+- Book a calendar slot with the awarded professional. The human
+  approves the booking, including date, location, and any logistics
+  riders.
 - Modify the firm's roster (promote primary, demote to backup,
   exclude). The human commits each change.
 - Work around the dispatch-time conflict gate. The gate runs
   server-side on `scope_dispatch_matter` dispatches, excluding
-  vendors with declared relationships to the matter's named parties;
-  the agent never attempts to clear it, override it, or steer an
-  award toward a vendor it excluded.
-- Send any external communication (email a vendor, dispatch a
+  professionals with declared relationships to the matter's named
+  parties; the agent never attempts to clear it, override it, or
+  steer an award toward a professional it excluded.
+- Send any external communication (email a professional, dispatch a
   records authorization, file a subpoena). The agent stages the
   draft; the human sends.
 
