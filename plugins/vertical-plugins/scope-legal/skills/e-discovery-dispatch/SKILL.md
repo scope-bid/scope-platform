@@ -54,7 +54,8 @@ flat-fee production).
    `scope_dispatch_matter`, the server-side conflict gate excludes
    professionals with declared relationships to them.
 2. Call `scope_dispatch_matter` with the collected fields, scoped to
-   the e-discovery category.
+   the e-discovery category, with `award='quote_only'` so nothing is
+   sent before the user picks.
 3. Quotes return from hosting platforms and review vendors that cover
    the requested scope.
 4. Pass to quote-comparison.

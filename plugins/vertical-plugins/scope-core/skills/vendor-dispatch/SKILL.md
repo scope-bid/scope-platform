@@ -118,14 +118,18 @@ Reporting", "go with Argent", "confirm the booking with Skyline"):
      predict when they will. If the reply says the job is held for
      documents (`documents_pending`), say the professional has not
      been sent the job yet and give the upload link
-     (`document_upload_url`). If the reply says an earlier approval
-     request was closed (`replaced_pending_approval`), say so.
+     (`document_upload_url`) when the reply has one, or else the
+     upload step the reply names. If the reply says an earlier
+     approval request was closed (`replaced_pending_approval`), say
+     so.
    - Anything else (a refusal, or a request for missing details):
      report what it says and ask for what it asks for.
-   Never call the booking locked, secured, or final. Do not invent
-   additional action items beyond what the tool's payload specified -
-   if the payload does not name a document, there is no document to
-   sign.
+   Never call the booking locked, confirmed, secured, or final: a made
+   award is not the professional accepting it. Where the reply's
+   `actions_taken` says the award was confirmed, that means the award
+   was made, nothing more. Do not invent additional action items
+   beyond what the tool's payload specified - if the payload does not
+   name a document, there is no document to sign.
 
 4. If the user did not specify a vendor (e.g., "go ahead and lock
    it") and there's only one tentative slot or one obvious
@@ -158,9 +162,11 @@ waitlist responses for some categories - if so, surface that plainly.
    Example: "Dispatching through Scope to scope-legal in roster-first
    mode..." or "Dispatching through Scope to scope-claims..." The
    line confirms which vertical and mode the request is going to.
-4. Call `scope_dispatch_matter` (or the category-specific tool like
-   `scope_book_deposition`, `scope_request_records`) with the parsed
-   matter fields and the dispatch mode.
+4. Call `scope_dispatch_matter` with the parsed matter fields, the
+   dispatch mode, and `award='quote_only': quotes come back, Scope chooses no one, nobody is asked to
+   approve anything, and no professional is contacted. Leave `award`
+   at its default only when the user asks Scope to choose and send a
+   professional.
 5. Wait for quotes to return. The MCP tool streams a list of named
    vendors, not blind matches.
 6. Pass the result to the quote-comparison skill for formatting.

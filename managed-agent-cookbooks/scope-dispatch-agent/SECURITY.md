@@ -32,8 +32,8 @@ emits `handoff_commit` back to resume the loop.
 
 - Read the matter description.
 - Parse it into structured fields.
-- Call MCP dispatch tools in dry-run mode (commit=false) to surface
-  available quotes.
+- Call `scope_dispatch_matter` with `award='quote_only'` to surface
+  available quotes without choosing or contacting a professional.
 - Format quotes side by side.
 - Wait for the human.
 

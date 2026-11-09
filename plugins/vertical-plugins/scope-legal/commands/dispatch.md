@@ -8,7 +8,9 @@ vendor-dispatch skill from scope-core. If matter intake has not yet
 parsed the matter, fire matter-intake-parsing first; then dispatch,
 naming every party verbatim - on `scope_dispatch_matter`, the
 server-side conflict gate excludes professionals with declared
-relationships to the named parties.
+relationships to the named parties. Dispatch with
+`award='quote_only'` unless the user asked Scope to choose and send a
+professional.
 
 The user can pass a free-text matter description after the slash
 command. If they pass nothing, ask for the matter description in one
