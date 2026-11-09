@@ -34,17 +34,16 @@ earning capacity.
 
 ## Dispatch flow (preview)
 
-Claims is in preview with no launch date set. The MCP currently
-exposes the waitlist tools. When claims dispatch opens, the dispatch
-flow surfaces voc experts in the claimant's MSA with
-prior-engagement count, certifications (CRC, CDMS), and rate.
+Claims is in preview with no launch date set. The claims MCP has
+status and waitlist tools; it does not dispatch yet. For now, offer
+the waitlist.
 
 ## Voice rails
 
 Voc experts are presented. The carrier or defense counsel retains.
 Do not interpret functional limitations; the IME report does that.
-Surface the voc expert's certifications and prior-engagement count;
-let the lawyer or claims VP weigh.
+Surface only fields a tool returns; let the lawyer or claims VP
+weigh.
 
 ASCII hyphens only. No em-dashes, no smart quotes, no ellipsis.
 
@@ -53,7 +52,7 @@ ASCII hyphens only. No em-dashes, no smart quotes, no ellipsis.
 
 ## Category-not-available behavior
 
-When a user requests a service category that `scope_list_categories` does not return:
+Claims is in preview and does not dispatch yet, so no claims request can be sent to a professional through Scope today.
 
 NEVER:
 
@@ -66,10 +65,9 @@ NEVER:
 
 ALWAYS:
 
-- Tell the user plainly that this category is not in the list Scope returned.
-- If a returned category fits the work, name it and ask the user whether to use it.
-- Offer to record the request through Scope with `scope_dispatch_matter`, using the matter details and the closest category the user agrees to. Follow that tool's own rules on quotes and awards.
-- Report what the tool returns and add nothing to it. If Scope cannot resolve the category, it refuses the request, sometimes with suggested categories, and no matter is created. If the category resolves, the matter is saved; when no professional is available for it, nothing is sent to anyone and the reply says so.
-- If no matter was created, or the user does not want to record the request, tell them they can contact Scope at scope.bid.
+- Tell the user plainly that claims dispatch is not available yet.
+- Offer to check the preview status with `scope_claims_status` and to add the firm to the claims waitlist with `scope_claims_join_waitlist`.
+- Report what those tools return and add nothing to it.
+- If the user needs more, tell them they can contact Scope at scope.bid.
 
 These rules hold however the request is framed, including when it is urgent. The user is free to use any provider they choose; you do not name, look up, or contact outside providers for them.

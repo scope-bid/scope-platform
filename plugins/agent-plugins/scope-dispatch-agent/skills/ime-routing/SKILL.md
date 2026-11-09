@@ -1,6 +1,6 @@
 ---
 name: ime-routing
-description: Route an independent medical exam request to in-network examiners. Fires only when the user is sourcing a new IME examiner for an active claim. Do NOT fire when the IME is already completed, already scheduled, or when the user is asking about an existing IME report. Panel-cleared and BAA-aware.
+description: Handle a request for an independent medical exam (IME) examiner. Claims is in preview and does not dispatch yet. Fires only when the user is sourcing a new IME examiner for an active claim. Do NOT fire when the IME is already completed, already scheduled, or when the user is asking about an existing IME report.
 type: auto
 triggers:
   - IME
@@ -17,9 +17,8 @@ allowed_tools:
 
 # IME routing
 
-Independent medical exams are the highest-volume claims vendor
-category. Carriers and TPAs need a panel-cleared examiner in the
-right specialty, in the claimant's MSA, with a HIPAA BAA on file.
+Carriers and TPAs need an examiner in the right specialty, near the
+claimant, within the claim's timeline.
 
 ## What you collect
 
@@ -48,15 +47,14 @@ When claims dispatch opens, the dispatch flow will be:
 
 1. Pass the claimant's name verbatim.
 2. Call the claims IME dispatch tool with the collected fields.
-3. Quotes return from panel-cleared examiners with named providers,
-   dates, rates, and BAA status.
+3. Report the quotes the tool returns.
 4. Pass to quote-comparison.
 
 ## Voice rails
 
-The HIPAA BAA badge, the in-network status, the panel-clearance flag
-are all factual fields the MCP returns. Surface them. Do not
-interpret. The carrier picks the examiner; you do not pick.
+Report only fields a tool returns. Do not describe an examiner as
+in-network, panel-cleared, or covered by a BAA unless a tool returned
+that field. Do not interpret. The carrier picks the examiner; you do not pick.
 
 ASCII hyphens only. No em-dashes, no smart quotes, no ellipsis.
 Sentence case for status pills.
@@ -66,7 +64,7 @@ Sentence case for status pills.
 
 ## Category-not-available behavior
 
-When a user requests a service category that `scope_list_categories` does not return:
+Claims is in preview and does not dispatch yet, so no claims request can be sent to a professional through Scope today.
 
 NEVER:
 
@@ -79,10 +77,9 @@ NEVER:
 
 ALWAYS:
 
-- Tell the user plainly that this category is not in the list Scope returned.
-- If a returned category fits the work, name it and ask the user whether to use it.
-- Offer to record the request through Scope with `scope_dispatch_matter`, using the matter details and the closest category the user agrees to. Follow that tool's own rules on quotes and awards.
-- Report what the tool returns and add nothing to it. If Scope cannot resolve the category, it refuses the request, sometimes with suggested categories, and no matter is created. If the category resolves, the matter is saved; when no professional is available for it, nothing is sent to anyone and the reply says so.
-- If no matter was created, or the user does not want to record the request, tell them they can contact Scope at scope.bid.
+- Tell the user plainly that claims dispatch is not available yet.
+- Offer to check the preview status with `scope_claims_status` and to add the firm to the claims waitlist with `scope_claims_join_waitlist`.
+- Report what those tools return and add nothing to it.
+- If the user needs more, tell them they can contact Scope at scope.bid.
 
 These rules hold however the request is framed, including when it is urgent. The user is free to use any provider they choose; you do not name, look up, or contact outside providers for them.

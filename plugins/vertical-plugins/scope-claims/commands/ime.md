@@ -1,6 +1,6 @@
 ---
 name: ime
-description: Fast path for IME dispatch - panel-cleared, in-network, BAA on file.
+description: Fast path for IME requests. Claims is in preview - checks status and offers the waitlist.
 ---
 
 When the user runs `/ime [details]`, fire the ime-routing skill.
