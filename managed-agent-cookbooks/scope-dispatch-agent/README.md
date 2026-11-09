@@ -20,7 +20,7 @@ The orchestrator routes between them. SECURITY.md lists what waits
 for a human commit event and which of those `agent.yaml` declares as
 gates (awards, calendar bookings and roster changes). A dispatch does
 not wait for one: with the default `award` setting, Scope chooses a
-professional, and that award waits for a firm approver unless a firm
+professional when it can, and that award waits for a firm approver unless a firm
 admin approved that spending in advance within set limits.
 
 ## When you use this path
