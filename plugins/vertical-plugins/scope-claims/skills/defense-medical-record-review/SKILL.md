@@ -32,12 +32,13 @@ support a causation position.
   with full report
 - Turnaround window
 
-## Dispatch flow (V2 preview)
+## Dispatch flow (preview)
 
-V2 launches Q3 2026. Until then, waitlist.
+Claims is in preview with no launch date set. For now, offer the
+claims waitlist.
 
-When V2 ships, the flow surfaces board-certified reviewers with
-prior-review count, average turnaround, and rate.
+When claims dispatch opens, the flow surfaces board-certified
+reviewers with prior-review count, average turnaround, and rate.
 
 ## Voice rails
 

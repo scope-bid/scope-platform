@@ -32,15 +32,15 @@ chain-of-custody on any video evidence must hold up at trial.
 - Video required yes or no
 - Jurisdiction (drives licensing requirement)
 
-## Dispatch flow (V2 preview)
+## Dispatch flow (preview)
 
-V2 launches Q3 2026. Until then, the MCP exposes the same status and
-waitlist tools as the IME flow. Carriers can register via
-`scope_claims_join_waitlist`.
+Claims is in preview with no launch date set. For now, the MCP
+exposes the same status and waitlist tools as the IME flow. Carriers
+can register via `scope_claims_join_waitlist`.
 
-When V2 ships, the dispatch flow surfaces licensed investigators in
-the claimant's MSA with prior-engagement count and chain-of-custody
-track record. The carrier picks; the agent presents.
+When claims dispatch opens, the dispatch flow surfaces licensed
+investigators in the claimant's MSA with prior-engagement count and
+chain-of-custody track record. The carrier picks; the agent presents.
 
 ## Voice rails
 

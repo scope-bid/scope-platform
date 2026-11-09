@@ -32,12 +32,12 @@ earning capacity.
   analysis, job-placement plan, all of the above
 - MSA or region (for labor-market data)
 
-## Dispatch flow (V2 preview)
+## Dispatch flow (preview)
 
-V2 launches Q3 2026. The MCP currently exposes the waitlist tools.
-When V2 ships, the dispatch flow surfaces voc experts in the
-claimant's MSA with prior-engagement count, certifications (CRC,
-CDMS), and rate.
+Claims is in preview with no launch date set. The MCP currently
+exposes the waitlist tools. When claims dispatch opens, the dispatch
+flow surfaces voc experts in the claimant's MSA with
+prior-engagement count, certifications (CRC, CDMS), and rate.
 
 ## Voice rails
 

@@ -35,14 +35,14 @@ reserve setting.
 - Plan format (long-form narrative vs. cost-summary table; some
   jurisdictions prefer one over the other)
 
-## Dispatch flow (V2 preview)
+## Dispatch flow (preview)
 
-V2 launches Q3 2026. Until then, waitlist via the standard claims
-MCP tools.
+Claims is in preview with no launch date set. For now, offer the
+waitlist via the standard claims MCP tools.
 
-When V2 ships, the dispatch flow surfaces life-care planners with
-certifications (CLCP, CCM), prior-plan count, and average plan
-turnaround time.
+When claims dispatch opens, the dispatch flow surfaces life-care
+planners with certifications (CLCP, CCM), prior-plan count, and
+average plan turnaround time.
 
 ## Voice rails
 

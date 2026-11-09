@@ -137,9 +137,7 @@ intake.
 ## Voice canon
 
 - "Request" not "ask" in positioning.
-- "Your firm" or "your team" in positioning, not "buyer" (except in
-  marketplace-mechanic copy where buyer-vs-vendor pairing clarifies
-  the transaction side).
+- "Your firm" or "your team" in positioning, not "buyer".
 - Plain English. No consultant jargon. Avoid "operationalize",
   "structurally", "materially", "regulatory drag".
 - Sentence case. ASCII hyphens. No smart Unicode punctuation.

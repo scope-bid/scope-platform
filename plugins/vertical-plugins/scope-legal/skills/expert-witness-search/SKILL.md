@@ -27,7 +27,8 @@ the right pool is different.
 
 ## Expert categories
 
-Common categories Scope's expert pool covers:
+Common expert fields (check `scope_list_categories` for the
+categories Scope returns today):
 
 - Economics or damages (lost earnings, present-value calc)
 - Medical (orthopedic, neurology, internal medicine, psychiatry)
@@ -39,8 +40,8 @@ Common categories Scope's expert pool covers:
 - Industry-specific (varies; ask the user to specify the field)
 
 If the user's matter is unusual (e.g., maritime, aviation, niche
-medical specialty), call `scope_list_categories` to see what the
-marketplace currently covers.
+medical specialty), call `scope_list_categories` to see which
+categories Scope currently returns.
 
 ## Daubert and Frye considerations
 

@@ -34,18 +34,20 @@ right specialty, in the claimant's MSA, with a HIPAA BAA on file.
 - Exam duration estimate (60 min, 90 min, 120 min)
 - Date window the claimant is available
 
-## Dispatch flow (V2 preview)
+## Dispatch flow (preview)
 
-V2 launches Q3 2026. Until then, the MCP exposes
-`scope_claims_status` (current waitlist position and timeline) and
-`scope_claims_join_waitlist` (puts the carrier on the founding-cohort
-list). For waitlisted carriers, surface the waitlist position
-plainly and offer to register the carrier if not yet on the list.
+Claims is in preview with no launch date set. The claims MCP has
+status and waitlist tools plus briefing, reporting and deliverable
+tools; it does not dispatch IMEs yet. Use `scope_claims_status`
+(preview status and the tools available now) and
+`scope_claims_join_waitlist` (records the carrier's firm name and
+contact email on the claims waitlist). Report the preview status
+plainly and offer to add the carrier to the waitlist.
 
-When V2 ships, the dispatch flow will be:
+When claims dispatch opens, the dispatch flow will be:
 
 1. Pass the claimant's name verbatim.
-2. Call the V2 IME dispatch tool with the collected fields.
+2. Call the claims IME dispatch tool with the collected fields.
 3. Quotes return from panel-cleared examiners with named providers,
    dates, rates, and BAA status.
 4. Pass to quote-comparison.

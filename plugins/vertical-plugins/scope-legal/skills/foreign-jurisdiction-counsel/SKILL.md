@@ -14,13 +14,12 @@ triggers:
 allowed_tools:
   - scope-legal__scope_dispatch_matter
   - scope-legal__scope_list_vendors
+  - scope-legal__scope_list_categories
 ---
 
 # Foreign-jurisdiction counsel
 
 Cross-border matters need local counsel in the foreign jurisdiction.
-The Scope marketplace covers the major commercial jurisdictions and
-adds new ones as demand surfaces.
 
 ## What you collect
 
@@ -36,26 +35,16 @@ adds new ones as demand surfaces.
   another working language)
 - Timezone constraints if any
 
-## Common jurisdictions
+## Coverage
 
-The legal MCP currently has named-counsel coverage in:
-
-- Germany (Frankfurt, Munich, Berlin, Dusseldorf)
-- United Kingdom (London, Edinburgh)
-- Switzerland (Zurich, Geneva)
-- Netherlands (Amsterdam)
-- Hong Kong, Singapore
-- Japan (Tokyo)
-- Australia (Sydney, Melbourne)
-- Brazil (Sao Paulo, Rio de Janeiro)
-- Mexico (Mexico City)
-- Canada (Toronto, Montreal, Vancouver)
-
-If the matter needs a jurisdiction not in the list, call
-`scope_list_categories` and `scope_list_vendors` to confirm coverage.
-If the marketplace does not cover the jurisdiction, surface that
-plainly and offer to surface the firm's prior referral network if
-roster-only mode is set.
+Coverage depends on which professionals Scope returns, so do not tell
+the user that Scope covers a country or city, and do not list covered
+jurisdictions, until a tool has shown it. Before saying anything about
+coverage for a jurisdiction, call `scope_list_categories` to confirm
+the category and `scope_list_vendors` with the category and
+jurisdiction to see who is returned. If no professional is returned
+for the jurisdiction, say so plainly and do not promise that coverage
+will be added.
 
 ## Voice rails
 
