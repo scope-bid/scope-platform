@@ -114,18 +114,19 @@ Reporting", "go with Argent", "confirm the booking with Skyline"):
      e.g., "The award is waiting for a firm approver - nothing is
      committed until it is released from /approvals." If the payload
      names the approver, name them.
-   - Awarded: say the award is made and the professional still has
-     to accept it. If the reply says the job is held for documents
-     (`documents_pending`), say the professional has not been sent
-     the job yet and give the upload step it names. If the reply says
-     an earlier approval request was closed
-     (`replaced_pending_approval`), say so. Relay its `next_steps`.
+   - Awarded: say the award is made. Do not say the professional has
+     accepted or has the job unless the reply says so, and do not
+     predict when they will. If the reply says the job is held for
+     documents (`documents_pending`), say the professional has not
+     been sent the job yet and give the upload link
+     (`document_upload_url`). If the reply says an earlier approval
+     request was closed (`replaced_pending_approval`), say so.
    - Anything else (a refusal, or a request for missing details):
      report what it says and ask for what it asks for.
-   Never call the booking locked, secured, confirmed, or final. Do not
-   invent additional action items beyond what the tool's payload
-   specified - if the payload does not name a document, there is no
-   document to sign.
+   Never call the booking locked, secured, or final. Do not invent
+   additional action items beyond what the tool's payload specified -
+   if the payload does not name a document, there is no document to
+   sign.
 
 4. If the user did not specify a vendor (e.g., "go ahead and lock
    it") and there's only one tentative slot or one obvious
