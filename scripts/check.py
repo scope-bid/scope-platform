@@ -102,7 +102,7 @@ def parse_frontmatter(path: Path) -> dict | None:
 
 def collect_mcp_servers(plugin_root: Path) -> set[str]:
     """Return the set of MCP server prefixes declared anywhere under the
-    plugin (e.g., 'scope-legal', 'verident'). Used to validate
+    plugin (e.g., 'scope-legal', 'example-reporting'). Used to validate
     allowed_tools entries.
 
     Also includes any server declared in scope-core (since requires:
