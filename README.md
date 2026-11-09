@@ -262,7 +262,7 @@ Four dispatches sent to bid.scope/legal in parallel.
 
 [Process server]     matter SC-EXAMPLE-1    quotes returned
   Lowest:   Example Process Service (example)    $185 flat
-  Fastest:  Sample Serve Co. (example)           first attempt Tuesday
+  Fastest:  Sample Serve Co. (example)           available on requested date
 
 [Records retrieval]  matter SC-EXAMPLE-2    quotes returned
   Lowest:   Sample Records Retrieval (example)   $325 + $0.10/page
