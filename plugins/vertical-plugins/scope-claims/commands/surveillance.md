@@ -10,4 +10,4 @@ Required fields: claim file ID, claimant name and address,
 jurisdiction, hours requested. Optional: video required, multi-day
 window.
 
-V2 launches Q3 2026. Waitlist behavior same as `/ime` until then.
+Claims is in preview. Waitlist behavior same as `/ime` for now.

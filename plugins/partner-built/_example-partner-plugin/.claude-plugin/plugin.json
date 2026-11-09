@@ -1,14 +1,14 @@
 {
-  "name": "verident-court-reporting",
+  "name": "example-court-reporting",
   "version": "0.1.0",
-  "description": "Verident Court Reporting partner plugin. Schedule depositions across the Verident network from inside Claude.",
+  "description": "Example partner plugin for a fictional court reporting agency, Example Court Reporting. Schedule depositions through the agency's own MCP server from inside Claude.",
   "type": "partner-plugin",
   "skills_dir": "skills",
   "commands_dir": "commands",
   "mcp_config": ".mcp.json",
   "requires": ["scope-core", "scope-legal"],
   "vendor": {
-    "name": "Verident Court Reporting",
+    "name": "Example Court Reporting (sample)",
     "category": "court-reporting",
     "msa_coverage": ["Los Angeles", "San Francisco", "San Diego", "Sacramento"]
   }

@@ -15,4 +15,4 @@ cards plus one declined entry, with the lowest bid flagged via
 Mirrors the legal `/dispatch` command - same shape, AEC trade
 categories, structured cards.
 
-Demo mode is live; real vendor onboarding ships with V3 (2027).
+AEC is in preview. Its tools work in demo mode only.

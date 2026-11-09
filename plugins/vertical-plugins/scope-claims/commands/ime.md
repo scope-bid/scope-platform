@@ -1,6 +1,6 @@
 ---
 name: ime
-description: Fast path for IME dispatch - panel-cleared, in-network, BAA on file.
+description: Fast path for IME requests. Claims is in preview - checks status and offers the waitlist.
 ---
 
 When the user runs `/ime [details]`, fire the ime-routing skill.
@@ -8,9 +8,10 @@ When the user runs `/ime [details]`, fire the ime-routing skill.
 Required fields: claim file ID, claimant name, specialty, MSA or
 city. Optional: in-network only, exam duration, date window.
 
-V2 launches Q3 2026. Until then, the command surfaces the carrier's
-waitlist position via `scope_claims_status` and offers to register
-the carrier via `scope_claims_join_waitlist` if not yet on the list.
+Claims is in preview with no launch date set and does not dispatch
+yet. For now, the command checks the claims status via
+`scope_claims_status` and offers to add the carrier to the waitlist
+via `scope_claims_join_waitlist`.
 
 Collect the claimant's name verbatim for the claim record. Pass
 quotes to quote-comparison.

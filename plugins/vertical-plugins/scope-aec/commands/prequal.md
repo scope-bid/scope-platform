@@ -11,4 +11,4 @@ prequal card across the platforms Scope knows about, plus the bond
 capacity available and the safety summary (E-Mod, TRIR). If any
 platform shows non-current, surface that plainly.
 
-Demo mode is live; real vendor onboarding ships with V3 (2027).
+AEC is in preview. Its tools work in demo mode only.

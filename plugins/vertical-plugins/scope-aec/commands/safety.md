@@ -13,4 +13,4 @@ recordable-injury count over the last three years, fatality count
 over the last five years, an OSHA 300 reference, and any recent
 findings.
 
-Demo mode is live; real vendor onboarding ships with V3 (2027).
+AEC is in preview. Its tools work in demo mode only.

@@ -4,15 +4,14 @@ Use this when your firm is procurement-gated and requires LLM traffic
 to stay inside your cloud. Not required for solo or mid-market
 deployments.
 
-This is the customer-cloud routing path. AmLaw 200 firms, large
-defense panel firms, and carriers with strict BAA constraints often
+This is the customer-cloud routing path. Some firms and carriers
 require Claude calls to route through their own cloud-side LLM
 gateway rather than Anthropic's public API. AWS Bedrock, Google
 Vertex AI, and Azure OpenAI all expose Claude through that path.
 
 This directory ships the install templates and a routing-validator
 script so the firm's IT or platform team can wire the agent's
-config to the firm's gateway in under an hour.
+config to the firm's gateway.
 
 ## When to use this
 
@@ -53,14 +52,7 @@ Do not use this path if:
 
 ## What this does not change
 
-The agent's behavior, voice canon, ABA rails, and human sign-off
-gates are identical regardless of routing path. The only thing that
-changes is where the LLM call lands. Skills, slash commands, MCP
-connectors, and steering events all behave the same way.
-
-## Forward-deployed
-
-This is forward-deployed for the AmLaw moment. The founder-led wedge
-today (mid-market plaintiff PI, workers comp plaintiff, defense
-panel) does not need this. It ships now so firms with mature
-procurement teams can integrate Scope without a separate engagement.
+The agent's behavior, voice canon, and human sign-off gates are
+identical regardless of routing path. The only thing that changes is
+where the LLM call lands. Skills, slash commands, MCP connectors, and
+steering events all behave the same way.

@@ -12,9 +12,9 @@ top-level READMEs / CLAUDE.md / CONTRIBUTING.md. Fails on any of:
   - Smart double quote (U+201C, U+201D)
   - Ellipsis character (U+2026)
   - Words 'matched', 'matching', 'recommended', 'recommendation'
-    (case-insensitive). ABA Rule 7.2 voice rails.
-  - Phrase 'AI conversation' (per audit canon)
-  - Phrase '60-120 days' (per audit canon - should be '60-90 days')
+    (case-insensitive).
+  - Phrase 'AI conversation'
+  - Phrase '60-120 days' (use '60-90 days')
 
 Hardened 2026-05-08:
   - Patterns use explicit Unicode escapes (\\u2014 etc.) instead of
@@ -72,7 +72,7 @@ PATTERNS = [
     ("forbidden word: matching", re.compile(r"\bmatching\b", re.IGNORECASE), "word"),
     ("forbidden word: recommended", re.compile(r"\brecommended\b", re.IGNORECASE), "word"),
     ("forbidden word: recommendation", re.compile(r"\brecommendation\b", re.IGNORECASE), "word"),
-    # "hire" retired 2026-07-15 (Scope.Bid AGENTS.md); "engage" is the verb.
+    # "hire" retired 2026-07-15; "engage" is the verb.
     # Backtick-wrapped mentions stay legal via is_inside_backticks.
     ("forbidden word: hire", re.compile(r"\bhir(?:e[sd]?|ing)\b", re.IGNORECASE), "word"),
     ("forbidden phrase: AI conversation", re.compile(r"AI conversation", re.IGNORECASE), "phrase"),

@@ -15,7 +15,7 @@
         "scopes_supported": ["mcp"],
         "code_challenge_methods_supported": ["S256"]
       },
-      "description": "Scope vertical-services MCP for legal-services vendor dispatch. Live. New installs run in demo mode out of the box (realistic seeded data). For real dispatch, authorize via OAuth at scope.bid/oauth/authorize or paste a personal access token from scope.bid/settings into the Authorization header."
+      "description": "Scope vertical-services MCP for dispatching legal-services professionals. Live. New installs run in demo mode out of the box (realistic seeded data). For real dispatch, authorize via OAuth at scope.bid/oauth/authorize or paste a personal access token from scope.bid/settings into the Authorization header."
     },
     "scope-claims": {
       "url": "https://scope.bid/api/mcp/claims",
@@ -32,7 +32,7 @@
         "scopes_supported": ["mcp"],
         "code_challenge_methods_supported": ["S256"]
       },
-      "description": "Scope vertical-services MCP for insurance claims vendor dispatch. Preview, V2 launches Q3 2026. Currently exposes scope_claims_status and scope_claims_join_waitlist; full dispatch tools land at V2."
+      "description": "Scope vertical-services MCP for insurance claims work. Preview with no launch date set. Exposes status and waitlist tools plus briefing, reporting and deliverable tools; claims dispatch tools are not available yet."
     },
     "scope-aec": {
       "url": "https://scope.bid/api/mcp/aec",
@@ -49,7 +49,7 @@
         "scopes_supported": ["mcp"],
         "code_challenge_methods_supported": ["S256"]
       },
-      "description": "Scope vertical-services MCP for AEC subcontractor prequalification. Preview, V3 launches 2027. Currently exposes scope_aec_status only; full dispatch tools land at V3."
+      "description": "Scope vertical-services MCP for AEC subcontractor prequalification. Preview: the AEC-specific tools work in demo mode only."
     }
   }
 }
