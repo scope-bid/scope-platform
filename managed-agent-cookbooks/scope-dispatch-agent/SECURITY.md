@@ -40,7 +40,8 @@ the runtime emits `handoff_commit` back to resume the loop.
   approved that spending in advance within set limits. The reply can
   instead ask for missing work-order details or say that no
   professional was returned. If the award commits, Scope notifies the
-  professional.
+  professional, unless the job is held for the work-order documents;
+  then the professional is told when the documents land.
 - Format quotes side by side.
 - Wait for the human.
 
