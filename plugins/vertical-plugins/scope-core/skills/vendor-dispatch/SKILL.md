@@ -85,10 +85,12 @@ When the dispatch tool's response includes a `display_widget` field:
 
 ## Award flow
 
-An award you request never commits on its own. The award call parks
-the engagement as a pending approval; a person at the firm releases
-it from /approvals, and only then is the professional engaged. No
-setting removes that step. Treat "lock", "book", and "confirm" as the
+An award you request waits for a person at the firm to approve it,
+unless a firm admin approved that spending in advance within set
+limits. When it waits, the award call parks the engagement as a
+pending approval; a person at the firm releases it from /approvals,
+and only then is the professional engaged. Say what the award call
+returned, pending or engaged, and nothing more. Treat "lock", "book", and "confirm" as the
 intent the user expressed, never as the state the matter is now in.
 
 When the user expresses intent to lock, book, award, confirm, or pick

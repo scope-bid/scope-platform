@@ -97,10 +97,9 @@ When the dispatch tool's response includes a `display_widget` field:
 
 ## Award flow
 
-An award you request never commits on its own. The award call parks
-the engagement as a pending approval; an approver on the buyer side
-releases it from /approvals, and only then is the sub engaged. No
-setting removes that step. Treat "lock", "book", and "award" as the
+AEC is in preview and its tools work in demo mode only, so an award
+here engages no one. Say what the award call returned and nothing
+more. Treat "lock", "book", and "award" as the
 intent the GC expressed, never as the state the package is now in.
 
 When the GC expresses intent to lock, book, award, or pick a specific
