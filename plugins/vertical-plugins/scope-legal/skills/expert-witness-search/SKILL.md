@@ -27,8 +27,7 @@ the right pool is different.
 
 ## Expert categories
 
-Common expert fields (check `scope_list_categories` for the
-categories Scope returns today):
+Common expert fields:
 
 - Economics or damages (lost earnings, present-value calc)
 - Medical (orthopedic, neurology, internal medicine, psychiatry)

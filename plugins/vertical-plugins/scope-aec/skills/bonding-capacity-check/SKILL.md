@@ -94,7 +94,6 @@ NEVER:
 ALWAYS:
 
 - Tell the user plainly that Scope did not return this trade or service.
-- If a trade Scope returned fits the work, name it and ask the user whether to use it.
 - AEC is in preview and its tools work in demo mode only, so nothing is sent to a real subcontractor. Report what the tool returns and add nothing to it.
 - If the user needs more, tell them they can contact Scope at scope.bid.
 
