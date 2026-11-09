@@ -14,8 +14,8 @@ Code.
 Scope is the layer your AI calls when it needs to engage a professional
 in a regulated industry. The platform packages auto-firing skills
 (`matter-intake-parsing`, `vendor-dispatch`, `quote-comparison`),
-slash commands (`/scope-legal:dispatch`, `/scope-legal:depo`,
-`/scope-claims:ime`), and an end-to-end dispatch agent that takes a
+slash commands (`/scope-legal:dispatch`, `/scope-claims:ime`), and
+an end-to-end dispatch agent that takes a
 matter description and stages quotes from professionals for the
 lawyer's review. The legal plugins run against Scope's live legal MCP
 server; the claims and AEC plugins are previews. House wording rules
@@ -272,10 +272,8 @@ Four dispatches sent to bid.scope/legal in parallel.
 [Court reporter]     matter SC-EXAMPLE-4    quotes returned
   Lowest:   Sample Court Reporting (example)     $325/hr + transcript
 
-Ready to request the awards. Reply "request all lowest" or "request
-[professional] for [matter]". Each request waits for a firm approver
-at scope.bid/approvals, unless a firm admin approved that spending in
-advance within set limits.
+Each award waits for a firm approver at scope.bid/approvals, unless
+a firm admin approved that spending in advance within set limits.
 ```
 
 ### Why this composes cleanly
