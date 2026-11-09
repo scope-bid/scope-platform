@@ -46,8 +46,8 @@ jurisdiction you pass may not filter that list, so read each returned
 professional's listed locations. Treat a professional as covering the
 jurisdiction only when their listed locations include it; a non-empty
 list is not coverage. If no returned professional lists the
-jurisdiction, say so plainly and do not promise that coverage will be
-added. If the firm has set roster-only mode, offer to surface the
+jurisdiction, say so plainly, do not promise that coverage will be
+added, and, if the firm has set roster-only mode, offer to surface the
 firm's prior referral network.
 
 ## Voice rails
