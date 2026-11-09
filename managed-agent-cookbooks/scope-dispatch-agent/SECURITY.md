@@ -1,10 +1,11 @@
 # Security model: human sign-off rail
 
 The agent presents; people at the firm decide. The actions listed
-below are gated on a human commit event from the runtime. Spending is
-also gated on Scope's server: every award waits for a firm approver at
-scope.bid/approvals, unless a firm admin approved that spending in
-advance within set limits.
+below are meant to wait for a human commit event from the runtime;
+the note after the second list says which ones `agent.yaml` gates.
+Spending is also gated on Scope's server: every award waits for a firm
+approver at scope.bid/approvals, unless a firm admin approved that
+spending in advance within set limits.
 
 ## What the agent NEVER does without human commit
 
@@ -34,15 +35,22 @@ emits `handoff_commit` back to resume the loop.
 - Read the matter description.
 - Parse it into structured fields.
 - Call `scope_dispatch_matter`. With the default `award` setting,
-  Scope chooses a professional by the firm's roster and price, and the
-  award waits for a firm approver unless a firm admin approved that
-  spending in advance within set limits.
+  Scope chooses a professional by the firm's roster and price when it
+  can, and the award waits for a firm approver unless a firm admin
+  approved that spending in advance within set limits. The reply can
+  instead ask for missing work-order details or say that no
+  professional was returned.
 - Format quotes side by side.
 - Wait for the human.
 
-The agent never releases an approval, never sends an external email
-or calendar invite, never modifies a roster, never works around the
+The agent never releases an approval and never works around the
 dispatch-time conflict gate.
+
+`human_gates` in `agent.yaml` declares the award, calendar and roster
+gates. It does not gate outside messages, and the orchestrator can
+reach Scope tools that notify a professional by email (a reschedule
+does). Add a runtime gate for outside messages if your deployment
+needs one.
 
 ## Presentation rules
 
