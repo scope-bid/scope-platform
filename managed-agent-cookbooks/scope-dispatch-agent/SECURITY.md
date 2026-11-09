@@ -1,9 +1,10 @@
 # Security model: human sign-off rail
 
-Scope drafts; the human commits. Every action this agent takes that
-affects the firm, the claim file, the matter file, the calendar, or
-the relationship with a professional is gated on a human commit event
-from the runtime.
+The agent presents; people at the firm decide. The actions listed
+below are gated on a human commit event from the runtime. Spending is
+also gated on Scope's server: every award waits for a firm approver at
+scope.bid/approvals, unless a firm admin approved that spending in
+advance within set limits.
 
 ## What the agent NEVER does without human commit
 
@@ -12,8 +13,8 @@ for every one of these. The runtime forwards the event to the firm's
 review UI; the human approves, revises, or abandons; the runtime
 emits `handoff_commit` back to resume the loop.
 
-- Award a professional's quote. The lawyer or claims VP picks the
-  professional.
+- Award a professional's quote with `scope_award_matter`. The lawyer
+  or claims VP names the professional.
 - Book a calendar slot with the awarded professional. The human
   approves the booking, including date, location, and any logistics
   riders.
@@ -32,14 +33,16 @@ emits `handoff_commit` back to resume the loop.
 
 - Read the matter description.
 - Parse it into structured fields.
-- Call MCP dispatch tools in dry-run mode (commit=false) to surface
-  available quotes.
+- Call `scope_dispatch_matter`. With the default `award` setting,
+  Scope chooses a professional by the firm's roster and price, and the
+  award waits for a firm approver unless a firm admin approved that
+  spending in advance within set limits.
 - Format quotes side by side.
 - Wait for the human.
 
-The agent never moves money, never confirms an award, never sends an
-external email or calendar invite, never modifies a roster, never
-works around the dispatch-time conflict gate.
+The agent never releases an approval, never sends an external email
+or calendar invite, never modifies a roster, never works around the
+dispatch-time conflict gate.
 
 ## Presentation rules
 

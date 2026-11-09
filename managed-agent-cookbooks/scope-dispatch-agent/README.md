@@ -16,9 +16,10 @@ stages quotes from professionals for the human's review:
 - `vendor-dispatcher` calls the right MCP server.
 - `quote-formatter` renders the side-by-side view.
 
-The orchestrator routes between them. Every action that affects the
-firm or the claim file is human-gated. Scope drafts; the human
-commits.
+The orchestrator routes between them. Awards, calendar bookings,
+roster changes and outside messages wait for a human commit event (see
+SECURITY.md), and every award waits for a firm approver unless a firm
+admin approved that spending in advance within set limits.
 
 ## When you use this path
 
