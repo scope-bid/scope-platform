@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "example-reporting": {
-      "url": "https://verident.example.com/mcp",
+      "url": "https://reporting.example.com/mcp",
       "transport": "http",
       "description": "Example Court Reporting MCP server (fictional sample). Exposes deposition scheduling across the agency's reporters.",
       "auth": {

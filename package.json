@@ -2,7 +2,7 @@
   "name": "scope-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Scope vertical-services plugin marketplace. Skills, slash commands, and agents for legal, claims, and AEC vendor dispatch on top of the Scope MCP servers.",
+  "description": "Scope plugins: skills, slash commands, and agents for dispatching legal-services professionals from Claude on top of the Scope MCP servers, with claims and AEC in preview.",
   "license": "Apache-2.0",
   "scripts": {
     "lint": "python3 scripts/lint-voice-canon.py",
