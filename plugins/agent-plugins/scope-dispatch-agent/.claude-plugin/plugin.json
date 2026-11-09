@@ -1,6 +1,6 @@
 {
   "name": "scope-dispatch-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Self-contained Scope dispatch agent. Takes a matter description, parses it, dispatches to the right vendors across the right verticals, and stages quotes for the lawyer's review.",
   "type": "agent-plugin",
   "agent_md": "agent.md",
