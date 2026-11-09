@@ -185,10 +185,9 @@ Specifically:
   Scope's dispatch chooses by the firm's roster and price when the
   call asks it to. If a professional declines, or a professional
   Scope chose does not accept in time, Scope can choose a replacement.
-  Spending a firm admin approved
-  in advance does not always cover a replacement, so it can wait for a
-  person at the firm even when the first award did not. Report what
-  Scope's reply says.
+  Spending a firm admin approved in advance does not always cover a
+  replacement, so it can wait for a person at the firm even when the
+  first award did not. Report what Scope's reply says.
 - The spending: an award waits for a person at the firm to approve it
   at /approvals, unless a firm admin approved that spending in advance
   within set limits.
