@@ -7,12 +7,12 @@ Spending is also gated on Scope's server: every award waits for a firm
 approver at scope.bid/approvals, unless a firm admin approved that
 spending in advance within set limits.
 
-## What the agent NEVER does without human commit
+## What waits for a human commit
 
-The orchestrator halts and emits a `handoff_request` steering event
-for every one of these. The runtime forwards the event to the firm's
-review UI; the human approves, revises, or abandons; the runtime
-emits `handoff_commit` back to resume the loop.
+The orchestrator is meant to halt and emit a `handoff_request`
+steering event before each of these. The runtime forwards the event
+to the firm's review UI; the human approves, revises, or abandons;
+the runtime emits `handoff_commit` back to resume the loop.
 
 - Award a professional's quote with `scope_award_matter`. The lawyer
   or claims VP names the professional.
@@ -27,8 +27,8 @@ emits `handoff_commit` back to resume the loop.
   parties; the agent never attempts to clear it, override it, or
   steer an award toward a professional it excluded.
 - Send any external communication (email a professional, dispatch a
-  records authorization, file a subpoena). The agent stages the
-  draft; the human sends.
+  records authorization, file a subpoena). The agent is meant to
+  stage the draft for the human to send; see the note on gates below.
 
 ## What the agent DOES autonomously
 
@@ -39,7 +39,8 @@ emits `handoff_commit` back to resume the loop.
   can, and the award waits for a firm approver unless a firm admin
   approved that spending in advance within set limits. The reply can
   instead ask for missing work-order details or say that no
-  professional was returned.
+  professional was returned. If the award commits, Scope notifies the
+  professional.
 - Format quotes side by side.
 - Wait for the human.
 
@@ -50,7 +51,10 @@ dispatch-time conflict gate.
 gates. It does not gate outside messages, and the orchestrator can
 reach Scope tools that notify a professional by email (a reschedule
 does). Add a runtime gate for outside messages if your deployment
-needs one.
+needs one. `human_gate_on_award` in `subagents/vendor-dispatcher.yaml`
+does not hold a dispatch: with the default `award` setting, a dispatch
+can end in a made award, within spending a firm admin approved in
+advance, with no handoff event.
 
 ## Presentation rules
 
