@@ -39,17 +39,12 @@ The agent never moves money, never confirms an award, never sends an
 external email or calendar invite, never modifies a roster, never
 works around the dispatch-time conflict gate.
 
-## ABA Model Rule alignment
+## Presentation rules
 
-Two rules sit underneath the rail:
-
-- **Rule 5.4 (independence of professional judgment).** The lawyer's
-  judgment on whom to retain stays the lawyer's. The agent surfaces
-  factual fields; the lawyer weighs and decides.
-- **Rule 7.2 (referrals and recommendations).** The agent does not
-  recommend. Quotes are returned and presented. The lawyer's bar
-  counsel can read every transcript without finding a Rule 7.2
-  violation.
+- The lawyer's judgment on whom to engage stays the lawyer's. The
+  agent surfaces factual fields; the lawyer weighs and decides.
+- Quotes are returned and presented. The agent does not pick one or
+  label one as the right choice.
 
 ## Audit trail
 
@@ -63,8 +58,9 @@ Every steering event the orchestrator emits is logged with:
 - The human action taken (commit, revise, abandon)
 - The committing user's identity (from the runtime's auth)
 
-The audit trail lives with the firm's matter-management or claims
-system. Scope does not retain it; the firm owns it.
+This steering-event log lives with the firm's matter-management or
+claims system, and the firm owns it. It is separate from the record
+Scope's own servers keep of MCP tool calls and matter activity.
 
 ## Customer-cloud routing
 

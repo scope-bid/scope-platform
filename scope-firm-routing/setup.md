@@ -98,8 +98,7 @@ Two places log the agent's traffic:
   for audit, cost, and rate-limit review.
 - Your matter-management or claims system. Every steering event
   the agent emits is logged with the matter ID and the human's
-  commit decision. Use that for ABA-rails audit and sign-off
-  review.
+  commit decision. Use that for sign-off review.
 
 ## Troubleshooting
 
@@ -107,5 +106,9 @@ Two places log the agent's traffic:
   policy. The agent makes outbound HTTPS calls to the MCP servers
   at `scope.bid/api/mcp/*`; that traffic must be allowed.
 - The agent reports an MCP-tool failure. The MCP servers run on
-  Scope's infrastructure, not yours. Confirm Scope's status page
-  shows the legal MCP as live.
+  Scope's infrastructure, not yours. Confirm your network can reach
+  `https://scope.bid/api/mcp/legal`: a `tools/list` JSON-RPC POST
+  sent without credentials should get an HTTP 401 response with an
+  OAuth challenge, not a timeout. If the server responds and tool
+  calls still fail, open an issue at
+  `github.com/scope-bid/scope-platform/issues`.

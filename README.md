@@ -6,34 +6,23 @@
 
 [![Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Lint](https://github.com/scope-bid/scope-platform/actions/workflows/lint.yml/badge.svg)](https://github.com/scope-bid/scope-platform/actions/workflows/lint.yml)
-<!-- The marketplace badge below resolves once the official Anthropic
-     listing approves. Until then it points at the submission docs. -->
-[![Anthropic Marketplace](https://img.shields.io/badge/marketplace-pending-lightgrey.svg)](https://code.claude.com/docs/en/plugins)
 
 The vertical-services MCP platform. Skills, slash commands, and agents
-for legal, claims, and AEC vendor dispatch, installable inside Cowork
-and Claude Code.
+for dispatching professionals, installable inside Cowork and Claude
+Code.
 
 Scope is the layer your AI calls when it needs to engage a professional
-in a regulated industry. The platform packages auto-firing skills (matter
-intake parsing, vendor dispatch, quote comparison), slash
-commands (`/scope-legal:dispatch`, `/scope-claims:ime`,
-`/scope-aec:prequal`), and an end-to-end dispatch agent that takes a
-matter description and stages vendor quotes for the lawyer's review.
-Three verticals: legal services live, insurance claims preview in Q3
-2026, AEC subcontractor preview in 2027. The cross-category
-coordination thesis - one matter spans multiple vendor categories that
-require different agencies - is the lead because that is where Scope's
-value actually shows up. Professional-responsibility conventions sit
-underneath every skill body and slash command; voice canon is enforced
-in CI by `scripts/lint-voice-canon.py`.
+in a regulated industry. The platform packages auto-firing skills
+(`matter-intake-parsing`, `vendor-dispatch`, `quote-comparison`),
+slash commands (`/scope-legal:dispatch`, `/scope-legal:depo`,
+`/scope-claims:ime`), and an end-to-end dispatch agent that takes a
+matter description and stages quotes from professionals for the
+lawyer's review. The legal plugins run against Scope's live legal MCP
+server; the claims and AEC plugins are previews. House wording rules
+are enforced in CI by `scripts/lint-voice-canon.py`.
 
-Who it is built for: mid-market plaintiff PI firms, workers comp
-plaintiff firms, and insurance defense panel firms first; in-house
-legal at mid-market companies and corporate legal deal teams next.
-Scope is in limited release: the whole loop runs in demo today, and it
-is opening to its first design partner firms and founding-class
-professionals now.
+Scope is live in production with demo mode available, and it is
+opening to its first firms and professionals now.
 
 ## Install
 
@@ -64,8 +53,8 @@ seeded responses immediately - no signup required.
 +----------------------------------------+
 |  Layer 1: MCP servers                  |
 |  scope-legal (live)                    |
-|  scope-claims (preview, V2 Q3 2026)    |
-|  scope-aec (preview, V3 2027)          |
+|  scope-claims (preview)                |
+|  scope-aec (preview)                   |
 +----------------------------------------+
 ```
 
@@ -98,9 +87,9 @@ Every plugin is meant to be forked and adjusted:
 
 ## Partner plugins
 
-Vendor agencies can ship their own plugin inside this marketplace.
-See `plugins/partner-built/_README.md` for the contract, the lint
-rails, and the submission flow. The example at
+`plugins/partner-built/_README.md` documents the manifest contract,
+the lint rules, and the pull request flow for plugins built by
+outside teams. The example at
 `plugins/partner-built/_example-partner-plugin/` is a working
 reference.
 
@@ -109,7 +98,7 @@ reference.
 The same dispatch agent runs headless via Anthropic's `/v1/agents`
 public-beta runtime. The cookbook at
 `managed-agent-cookbooks/scope-dispatch-agent/` ships the orchestrator
-config, four leaf-worker subagents, and the human sign-off rail. See
+config, three leaf-worker subagents, and the human sign-off rail. See
 its README for deployment.
 
 ## Multi-agent orchestration: parallel dispatch on one matter
@@ -118,22 +107,21 @@ Claude Managed Agents (Anthropic public beta, shipped 2026-05-07)
 lets a coordinator agent split work across specialist sub-agents in
 parallel on a shared session. Scope is designed to be on the
 receiving end of that fan-out: each sub-agent dispatches a different
-vendor category to bid.scope/legal at the same time, and the
+service category to bid.scope/legal at the same time, and the
 coordinator consolidates the responses.
 
 ### When to reach for this pattern
 
-When a single matter triggers multiple vendor needs at once. New PI
+When a single matter triggers multiple service needs at once. New PI
 case intake is the canonical example: serve the defendant, pull
 records, schedule an IME, book a court reporter for the deposition.
-Sequential dispatch is 30 to 60 seconds per vendor. Parallel
-dispatch lands the whole intake inside a single coordinator
-response.
+Running the categories in parallel returns the whole intake in a
+single coordinator response instead of one category at a time.
 
 ### Example: new PI matter intake
 
 Four specialist agents, one coordinator. Each specialist owns one
-vendor category and connects to the bid.scope/legal MCP server. The
+service category and connects to the bid.scope/legal MCP server. The
 coordinator fans the work out, the specialists run on independent
 session threads, and the coordinator consolidates their structured
 payloads into a single status card.
@@ -271,20 +259,20 @@ honors Scope's `display_widget` HTML):
 ```
 Four dispatches fired against bid.scope/legal in parallel.
 
-[Process server]    matter SC-3104    5 quotes returned
+[Process server]    matter SC-EXAMPLE-1    5 quotes returned
   Lowest:   SacServe & Process Co.   $185 flat
   Fastest:  Capital City Process     24-hour rush available
 
-[Records retrieval]  matter SC-3105    4 quotes returned
+[Records retrieval]  matter SC-EXAMPLE-2    4 quotes returned
   Lowest:   Beacon Records Network   $325 + $0.10/page
   HIPAA-compliant custodian handling confirmed across all four
 
-[IME (orthopedic)]   matter SC-3106    5 quotes returned
+[IME (orthopedic)]   matter SC-EXAMPLE-3    5 quotes returned
   Lowest:   Citadel IME Network      $1,950 / 90-min exam
   Earliest available: 2026-06-09 (Cornerstone IME Network)
 
 [Court reporter, deposition 2026-06-15]
-                     matter SC-3107    5 quotes returned
+                     matter SC-EXAMPLE-4    5 quotes returned
   Lowest:   Heritage Court Reporters $325/hr + transcript
   All five vendors confirmed availability on the requested date
 
@@ -295,14 +283,14 @@ a firm approver releases it from scope.bid/approvals.
 
 ### Why this composes cleanly
 
-Each sub-agent owns one vendor category and one MCP tool surface.
+Each sub-agent owns one service category and one MCP tool surface.
 No coordination overhead at the prompt layer. Scope's HTTP transport
 handles four simultaneous requests cleanly because each is an
 independent JSON-RPC call against bid.scope/legal with no shared
 state. The coordinator gets back four structured payloads and
 renders a single status card.
 
-The pattern extends: when a matter spans more than four vendor
+The pattern extends: when a matter spans more than four service
 categories (e.g., a multi-vehicle accident that adds translation
 services, life-care planning, and accident reconstruction), add
 more specialist sub-agents to the coordinator's roster.
@@ -328,8 +316,8 @@ coordinator can spawn multiple instances of any one of them, up to
 
 If your firm requires LLM traffic to stay inside your AWS account, GCP
 project, or Azure tenant, see `scope-firm-routing/` for the install
-templates and the routing validator. Forward-deployed for the AmLaw 200
-procurement moment; not required for solo or mid-market.
+templates and the routing validator. The default install does not
+need it.
 
 ## License
 

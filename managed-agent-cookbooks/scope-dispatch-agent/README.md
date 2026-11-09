@@ -10,7 +10,7 @@ steering events for headless use.
 ## What this is
 
 A three-subagent orchestrator that takes a matter description and
-stages vendor quotes for the human's review:
+stages quotes from professionals for the human's review:
 
 - `matter-parser` parses the free-text matter into structured fields.
 - `vendor-dispatcher` calls the right MCP server.
@@ -57,15 +57,15 @@ session), and the dispatch is fast and inline.
 If your firm is procurement-gated to a customer-cloud LLM gateway
 (AWS Bedrock, Google Vertex AI, Azure OpenAI), point the
 orchestrator's model endpoint at the gateway via the templates in
-`../../scope-firm-routing/templates/`. Forward-deployed for the
-AmLaw 200 procurement moment; not required for solo or mid-market.
+`../../scope-firm-routing/templates/`. The default deployment does
+not need it.
 
 ## Voice rails
 
 The agent and every subagent enforce the Scope voice canon:
 
 - Quotes are returned, presented, shown. The human picks; the agent
-  presents. ABA Model Rule 7.2 sits underneath this.
+  presents.
 - ASCII hyphens. No em-dashes, no smart quotes, no ellipsis
   character.
 - Sentence case for any pill, label, or status.

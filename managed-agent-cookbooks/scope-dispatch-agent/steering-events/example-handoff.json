@@ -4,14 +4,14 @@
   "agent": "scope-dispatch-agent",
   "matter_id": "LP-2026-441",
   "stage": "dispatch_award",
-  "summary": "Three quotes returned for the records retrieval request on Mt. Sinai Medical Center. Awaiting the lawyer's award.",
+  "summary": "Three quotes returned for the records retrieval request on Sample Medical Center (example). Awaiting the lawyer's award.",
   "payload": {
     "matter": {
       "id": "LP-2026-441",
       "parties": ["Henderson v. Acme Logistics"],
       "jurisdiction": "California Superior, San Bernardino County",
       "vendor_category": "records-retrieval",
-      "provider": "Mt. Sinai Medical Center",
+      "provider": "Sample Medical Center (example)",
       "claimant": "Maria Henderson",
       "date_range": "2019-2024"
     },

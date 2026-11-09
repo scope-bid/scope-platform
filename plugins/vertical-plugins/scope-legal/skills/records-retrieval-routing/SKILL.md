@@ -56,8 +56,7 @@ sentence case for status pills.
 
 ASCII hyphens only. No em-dashes, no smart quotes, no ellipsis. When
 turnaround windows are described, the canonical phrasing is "10-30
-days standard, 60-90 days when not chased" - never "60-120" (that
-figure is retired per the audit canon).
+days standard, 60-90 days when not chased" - never "60-120".
 
 
 ---

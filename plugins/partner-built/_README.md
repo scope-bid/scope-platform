@@ -1,9 +1,9 @@
 # Partner plugins
 
-Vendor agencies can ship their own plugin inside the Scope plugin
-marketplace. This is how court reporting agencies, IME networks,
-records-retrieval shops, e-discovery platforms, and other launch-
-cohort vendors get distribution inside Scope's install graph.
+This page documents the contract for plugins built by outside teams,
+such as court reporting agencies, IME networks, records-retrieval
+shops, and e-discovery platforms. A partner plugin follows the same
+manifest shape and lint rules as the first-party Scope plugins.
 
 ## What a partner plugin is
 
@@ -19,22 +19,8 @@ When a firm installs the partner plugin, the partner's tools become
 callable from inside the firm's Claude session, and the partner's
 skills auto-fire on the right triggers. The firm can route to the
 partner via `roster_first` or `roster_only` mode and the partner
-shows up as a primary or backup vendor on the matters where the
-firm has tiered them.
-
-## What you get as a partner
-
-- Distribution inside Scope's install graph. Every firm that
-  installs `scope-legal` or `scope-claims` and adds your plugin gets
-  your tools wired in automatically.
-- Auto-fire skills inside the lawyer's, claims VP's, or GC's Claude
-  session. When the user describes the kind of work you do, your
-  skill surfaces.
-- Slash commands published. The user can type `/your-action` and
-  hit your tools directly.
-- A canonical voice. Every partner plugin passes the same lint
-  rails the first-party Scope plugins pass, so the user reads one
-  consistent voice across vendors.
+shows up as a primary or backup professional on the matters where
+the firm has placed them on its roster.
 
 ## Skill manifest contract
 
@@ -100,8 +86,7 @@ short list:
   no ellipsis character.
 - Sentence case for all eyebrows, pills, labels, slash command
   names.
-- `Returned` or `presented`. Never `matched` or `recommended`. ABA
-  Rule 7.2 sits underneath this.
+- `Returned` or `presented`. Never `matched` or `recommended`.
 - "Request" not "ask" in positioning copy.
 - Plain English. Avoid "operationalize", "structurally",
   "materially", "regulatory drag".
@@ -122,30 +107,22 @@ merge.
    description of what your plugin does and which firms you expect
    to install it.
 
-## Review SLA
+## Review
 
-Scope reviews every partner-plugin PR within 5 business days. The
-review checks: voice canon, security model (auth, rate limit), tool
-naming, the manifest contract, and the partner's stated coverage.
+The review checks: voice canon, security model (auth, rate limit),
+tool naming, the manifest contract, and the partner's stated
+coverage. If revisions are needed, the review comment lists specific
+files and lines.
 
-If revisions are needed, the review comment lists specific files and
-lines. Your second push gets a re-review within 2 business days.
-
-## Branding rules
+## Formatting
 
 - Sentence case, no all-caps anywhere except inside literal code or
   proper noun acronyms (USA, IME, IRS).
-- Switzer typography in any UI surface your plugin renders. The
-  `[scope]` brackets are JetBrains Mono; everything else is Switzer.
-- The canonical eyebrow style is sentence case, 13px, Switzer
-  Medium, secondary text color. Pill style is sentence case, 11px,
-  Switzer Medium, semantic background.
-- No decorative monospace (uppercase + letterspacing) eyebrows.
-  That pattern is retired across the Scope canon.
 
 ## What partner plugins do not do
 
-- Pick a vendor for the user. Quotes are returned, not assigned.
+- Pick a professional for the user. Quotes are returned, not
+  assigned.
 - Work around the dispatch-time conflict gate. The gate is
   server-enforced on `scope_dispatch_matter` dispatches.
 - Commit a dispatch the human has not approved.

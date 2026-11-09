@@ -163,8 +163,7 @@ clarifying question before dispatching.
 Quotes are returned. Vendors are presented. The GC picks. Never assert
 that one vendor is better than another based on the bid alone - the
 risk team weighs prequal status, bond capacity, safety record,
-mobilize date, and bid against each other. ABA Model Rule 7.2 does
-not apply here, but the same rail does: the agent surfaces facts,
+mobilize date, and bid against each other. The agent surfaces facts;
 the human awards.
 
 ASCII hyphens only, no em-dashes, no smart quotes, no ellipsis.

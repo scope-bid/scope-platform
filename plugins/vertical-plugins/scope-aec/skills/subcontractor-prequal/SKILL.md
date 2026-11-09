@@ -86,9 +86,6 @@ the list, then call `scope_verify_prequal` per vendor.
 Prequal status is presented as factual fields per platform. Do not
 interpret. The GC's risk team decides whether to bid or reject.
 
-Sub-receivables financing (the V3 headline product) is not part of
-prequal. Keep that flow separate.
-
 ASCII hyphens only. No em-dashes, no smart quotes, no ellipsis.
 
 
